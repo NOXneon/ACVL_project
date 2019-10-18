@@ -1,14 +1,14 @@
-package model.billetterie;
+package Modele.Billetterie;
 
-import model.Statut;
+import Modele.Statut;
 
 /**
  * Représente le ticket émis suite à un achat de place
  *
  * @see Achat
- * @see model.theater.Place
- * @see model.utilisateur.Client
- * @see model.utilisateur.Respo_Programmation
+ * @see Modele.Theatre.Place
+ * @see Modele.Utilisateur.Client
+ * @see Modele.Utilisateur.Respo_Programmation
  */
 
 // TODO : lier la classe à Achat

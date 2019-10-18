@@ -1,4 +1,4 @@
-package model.theater;
+package Modele.Theatre;
 
 /**
  * Repésente une catégorie de zone
@@ -7,7 +7,7 @@ package model.theater;
  * @see Salle
  */
 
-public class Orchestre extends Categorie
+public class Balcon extends Categorie
 {
 
     /**
@@ -15,7 +15,7 @@ public class Orchestre extends Categorie
      *
      * @param tarif : tarif de la place dans la catégorie de zone
      */
-    public Orchestre(float tarif)
+    public Balcon(float tarif)
     {
         super(tarif);
     }

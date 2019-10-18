@@ -1,4 +1,4 @@
-package model;
+package Modele;
 
 /**
  * Représente les différents status des différents Objets (Reservation, Achat, Ticket, Representation)

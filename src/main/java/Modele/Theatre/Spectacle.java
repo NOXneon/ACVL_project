@@ -1,4 +1,4 @@
-package model.theater;
+package Modele.Theatre;
 
 /**
  * Représente un spectacle mis en scène par le biai de différentes représentations
