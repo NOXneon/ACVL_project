@@ -2,7 +2,6 @@ package Modele.Theatre;
 
 import Modele.Etat;
 
-
 /**
  * Représente une place dans la salle
  *
@@ -10,7 +9,8 @@ import Modele.Etat;
  */
 
 public class Place
-{ /**
+{
+    /**
      * Représente le numéro de la place
      */
     private String num_place;
