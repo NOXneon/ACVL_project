@@ -2,6 +2,8 @@ package model.theater;
 
 import model.Etat;
 
+import Modèle.Etat;
+
 /**
  * Représente une place dans la salle
  *
@@ -62,5 +64,14 @@ public class Place
     public Etat getEtat()
     {
         return etat;
+    }
+
+    /**
+     * Setter
+     * @param etat : etat de la place
+     */
+    public void setEtat(Etat etat)
+    {
+        this.etat = etat;
     }
 }
