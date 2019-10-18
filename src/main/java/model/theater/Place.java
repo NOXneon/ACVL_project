@@ -2,7 +2,6 @@ package model.theater;
 
 import model.Etat;
 
-import Modèle.Etat;
 
 /**
  * Représente une place dans la salle
