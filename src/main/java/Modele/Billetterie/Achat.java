@@ -1,14 +1,14 @@
-package model.billetterie;
+package Modele.Billetterie;
 
 import java.util.Date;
 
-import model.Statut;
+import Modele.Statut;
 
 /**
  * Représente le dossier d'achat de place(s)
  *
  * @see Reservation
- * @see model.theater.Place
+ * @see Modele.Theatre.Place
  * @see Ticket
  */
 

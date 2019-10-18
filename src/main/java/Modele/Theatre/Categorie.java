@@ -1,4 +1,4 @@
-package model.theater;
+package Modele.Theatre;
 
 /**
  * Représente la catégorie de zone dans une salle

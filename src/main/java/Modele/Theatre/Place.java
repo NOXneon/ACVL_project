@@ -1,6 +1,6 @@
-package model.theater;
+package Modele.Theatre;
 
-import model.Etat;
+import Modele.Etat;
 
 
 /**
