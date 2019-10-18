@@ -1,4 +1,4 @@
-package Modèle.Théâtre;
+package model.theater;
 
 /**
  * Représente la salle du théâtre
@@ -8,7 +8,7 @@ package Modèle.Théâtre;
 
 public class Salle
 {
-    /**
+	/**
      * Représente le nombre de places dans la salle
      */
     private int nb_places;

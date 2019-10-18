@@ -1,10 +1,10 @@
-package Modèle.Utilisateur;
+package model.utilisateur;
 
 /**
- * Représente le responsable de programmation du théâtre
+ * Représente le responsable de l'application du théâtre
  */
 
-public class Respo_Application extends Responsable
+public class Respo_Programmation extends Responsable
 {
     /**
      * Constructeur
@@ -16,7 +16,7 @@ public class Respo_Application extends Responsable
      * @param mail   : adresse mail de l'utilisateur
      * @param tel    : numéro de téléphone de l'utilisateur
      */
-    public Respo_Application(String nom, String prenom, String login, String mdp, String mail, String tel)
+    public Respo_Programmation(String nom, String prenom, String login, String mdp, String mail, String tel)
     {
         super(nom, prenom, login, mdp, mail, tel);
     }

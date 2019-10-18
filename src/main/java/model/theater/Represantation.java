@@ -1,8 +1,8 @@
-package Modèle.Théâtre;
-
-import Modèle.Statut;
+package model.theater;
 
 import java.util.Date;
+
+import model.Statut;
 
 /**
  * Représente une séance d'un spectacle se déroulant dans le théâtre

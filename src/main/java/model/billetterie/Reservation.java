@@ -1,15 +1,15 @@
-package Modèle.Billetterie;
-
-import Modèle.Statut;
+package model.billetterie;
 
 import java.util.Date;
+
+import model.Statut;
 
 /**
  * Représente la réservation de place(s)
  *
- * @see Modèle.Théâtre.Place
- * @see Modèle.Utilisateur.Client
- * @see Modèle.Utilisateur.Respo_Programmation
+ * @see model.theater.Place
+ * @see model.utilisateur.Client
+ * @see model.utilisateur.Respo_Programmation
  */
 
 // TODO : lier la classe à Place

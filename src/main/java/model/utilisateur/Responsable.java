@@ -1,13 +1,10 @@
-package Modèle.Utilisateur;
+package model.utilisateur;
 
 /**
- * Représente le client chez le théâtre
+ * Représente un responsable
  */
 
-// TODO : lier la classe à Reservation
-// TODO : lier la classe à Achat
-
-public class Client extends Utilisateur
+public abstract class Responsable extends Utilisateur
 {
     /**
      * Constructeur
@@ -19,7 +16,7 @@ public class Client extends Utilisateur
      * @param mail   : adresse mail de l'utilisateur
      * @param tel    : numéro de téléphone de l'utilisateur
      */
-    public Client(String nom, String prenom, String login, String mdp, String mail, String tel)
+    public Responsable(String nom, String prenom, String login, String mdp, String mail, String tel)
     {
         super(nom, prenom, login, mdp, mail, tel);
     }

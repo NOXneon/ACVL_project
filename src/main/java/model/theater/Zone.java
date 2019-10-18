@@ -1,4 +1,4 @@
-package Modèle.Théâtre;
+package model.theater;
 
 /**
  * Représente une zone dans une salle

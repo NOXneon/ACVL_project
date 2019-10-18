@@ -1,4 +1,4 @@
-package Modèle.Utilisateur;
+package model.utilisateur;
 
 /**
  * Représente un utilisateur de l'application
