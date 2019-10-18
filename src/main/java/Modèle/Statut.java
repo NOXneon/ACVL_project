@@ -1,7 +1,7 @@
 package Modèle;
 
 /**
- * Représente les différents status des différents Objets (Reservation, Achat, Ticket, Representation)
+ * Représente les différents statuts des différents Objets (Reservation, Achat, Ticket, Representation)
  */
 
 public enum Statut

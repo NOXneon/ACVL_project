@@ -19,6 +19,11 @@ public class Place
     private String num_rang;
 
     /**
+     * Représente l'état de la place
+     */
+    private Etat etat;
+
+    /**
      * tarif de la place dans la catégorie de zone
      * @param num_place : numéro de la place
      * @param num_rang : numéro du rang
@@ -27,6 +32,8 @@ public class Place
     {
         this.num_place = num_place;
         this.num_rang = num_rang;
+        // Etat par défaut : Libre
+        this.etat = Etat.Libre;
     }
 
     /**
@@ -45,5 +52,14 @@ public class Place
     public String getNum_rang()
     {
         return num_rang;
+    }
+
+    /**
+     * Getter
+     * @return etat : etat de la place
+     */
+    public Etat getEtat()
+    {
+        return etat;
     }
 }
