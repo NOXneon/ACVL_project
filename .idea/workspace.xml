@@ -2,21 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e75716be-705d-4551-98c3-bc3703e4d277" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/ACVL_project.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Modele/Billetterie/Achat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Modele/Billetterie/Achat.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Modele/Billetterie/Reservation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Modele/Billetterie/Reservation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Modele/Billetterie/Ticket.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Modele/Billetterie/Ticket.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Modele/Theatre/Balcon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Modele/Theatre/Balcon.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Modele/Theatre/Orchestre.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Modele/Theatre/Orchestre.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Modele/Theatre/Poulailler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Modele/Theatre/Poulailler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Modele/Theatre/Represantation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Modele/Theatre/Represantation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Modele/Theatre/Represantation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Modele/Theatre/Representation.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Modele/Theatre/Salle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Modele/Theatre/Salle.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Modele/Theatre/Spectacle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Modele/Theatre/Spectacle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Modele/Theatre/Zone.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Modele/Theatre/Zone.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Modele/Utilisateur/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Modele/Utilisateur/Client.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -115,7 +104,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
