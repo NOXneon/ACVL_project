@@ -11,9 +11,7 @@ import Modele.Statut;
  * @see Salle
  */
 
-// TODO : relier la classe à Salle
-
-public class Represantation
+public class Representation
 {
     /**
      * Représente la date et heure de la représentation
@@ -21,9 +19,9 @@ public class Represantation
     private Date date;
 
     /**
-     * Représente la durée de la représentation
+     * Représente la durée (en minutes) de la représentation
      */
-    private String duree;
+    private long duree;
 
     /**
      * Représente le statut de la représentation
@@ -35,7 +33,7 @@ public class Represantation
      * @param date : date et heure de la représentation
      * @param duree : durée de la représentation
      */
-    public Represantation(Date date, String duree)
+    public Representation(Date date, long duree)
     {
         this.date = date;
         this.duree = duree;
@@ -44,7 +42,7 @@ public class Represantation
     }
 
     /**
-     * >> Getter
+     * Getter
      * @return date : date et heure de la représentation
      */
     public Date getDate()
@@ -56,7 +54,7 @@ public class Represantation
      * Getter
      * @return duree : durée de la représentation
      */
-    public String getDuree()
+    public long getDuree()
     {
         return duree;
     }

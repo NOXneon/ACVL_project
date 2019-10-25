@@ -1,13 +1,18 @@
 package Modele.Theatre;
 
 /**
- * Repésente une catégorie de zone
+ * Repésente une catégorie de zone (unique donc Singleton)
  *
  * @see Zone
  * @see Salle
  */
-public class Poulailler extends Categorie
+public final class Poulailler extends Categorie
 {
+    /**
+     * Instance unique non initialisée
+     */
+    private static Poulailler POULAILLER = null;
+
     /**
      * Concstructeur
      *
@@ -16,5 +21,17 @@ public class Poulailler extends Categorie
     public Poulailler(float tarif)
     {
         super(tarif);
+    }
+
+    /**
+     * Point d'accès à l'instance unique de Poulailler
+     * @return POULAILLER : Catégorie unique
+     */
+    public static synchronized Poulailler getPOULAILLER()
+    {
+        if(POULAILLER == null)
+            POULAILLER = new Poulailler(49);
+
+        return POULAILLER;
     }
 }
