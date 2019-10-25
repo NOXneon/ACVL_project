@@ -11,7 +11,7 @@ import Modele.Statut;
  * @see Salle
  */
 
-public class Represantation
+public class Representation
 {
     /**
      * Représente la date et heure de la représentation
@@ -33,7 +33,7 @@ public class Represantation
      * @param date : date et heure de la représentation
      * @param duree : durée de la représentation
      */
-    public Represantation(Date date, long duree)
+    public Representation(Date date, long duree)
     {
         this.date = date;
         this.duree = duree;

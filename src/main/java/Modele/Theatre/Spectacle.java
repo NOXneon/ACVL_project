@@ -5,7 +5,7 @@ import java.util.ArrayList;
 /**
  * Représente un spectacle mis en scène par le biai de différentes représentations
  *
- * @see Represantation
+ * @see Representation
  */
 
 public class Spectacle
@@ -23,19 +23,19 @@ public class Spectacle
     /**
      * Représente la liste des représentations du spectacle
      */
-    private ArrayList<Represantation> represantations;
+    private ArrayList<Representation> representations;
 
     /**
      * Constructeur paramétré
      * @param numero : numéro ID du spectacle
      * @param nom : nom du spectacle
-     * @param represantations : liste des représentations
+     * @param representations : liste des représentations
      */
-    public Spectacle(String numero, String nom, ArrayList<Represantation> represantations)
+    public Spectacle(String numero, String nom, ArrayList<Representation> representations)
     {
         this.numero = numero;
         this.nom = nom;
-        this.represantations = represantations;
+        this.representations = representations;
     }
 
     /**
@@ -58,10 +58,10 @@ public class Spectacle
 
     /**
      * Getter
-     * @return represantations : liste des représentations du spectacle
+     * @return representations : liste des représentations du spectacle
      */
-    public ArrayList<Represantation> getRepresantations()
+    public ArrayList<Representation> getRepresentations()
     {
-        return represantations;
+        return representations;
     }
 }

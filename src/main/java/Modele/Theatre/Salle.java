@@ -123,11 +123,11 @@ public final class Salle
     {
         boolean prog_possible = true;
 
-        for(Represantation tmp_representation : spectacle.getRepresantations())
+        for(Representation tmp_representation : spectacle.getRepresentations())
         {
             for(Spectacle tmp_spectacle : spectacles)
             {
-                for(Represantation tmp_representation1 : tmp_spectacle.getRepresantations())
+                for(Representation tmp_representation1 : tmp_spectacle.getRepresentations())
                 {
                     // Calcul de la Date fin du premier spectacle
                     Date endTime_tmp_spectacle = new Date(tmp_representation.getDate().getTime()+tmp_representation.getDuree());
