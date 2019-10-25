@@ -136,9 +136,12 @@ public final class Salle
                             tmp_representation.getDate().compareTo(tmp_representation1.getDate()) == 0
                             ||
                             // Comparaison du chevauchement au niveau des heures début/fin
-                            endTime_tmp_spectacle.compareTo(tmp_representation1.getDate())>1
+                            endTime_tmp_spectacle.compareTo(tmp_representation1.getDate()) > 0
                     )
+                    {
                         prog_possible = false;
+                        break;
+                    }
                 }
             }
         }

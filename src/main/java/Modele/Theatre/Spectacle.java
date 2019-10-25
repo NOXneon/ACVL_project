@@ -1,6 +1,7 @@
 package Modele.Theatre;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 /**
  * Représente un spectacle mis en scène par le biai de différentes représentations
@@ -63,5 +64,46 @@ public class Spectacle
     public ArrayList<Representation> getRepresentations()
     {
         return representations;
+    }
+
+    /**
+     * Vérifie que la représentation ne chevauche pas les autres représentations du spectacle
+     * @param representation : représentation à ajouter
+     * @return prog_possible : booléen représentant si la programmation de la représentation est possible
+     *                       (donc sa date ne chevauche pas les dates des autres représentations du spectacle)
+     */
+    public boolean progPossible(Representation representation)
+    {
+        boolean prog_possible = true;
+
+        for(Representation tmp_representation : representations)
+        {
+            Date endTime_spectacle = new Date(representation.getDate().getTime()+representation.getDuree());
+            if
+            (
+                    // Comparaison du chevauchement au niveau de la date
+                    representation.getDate().compareTo(tmp_representation.getDate()) == 0
+                    ||
+                    // Comparaison du chevauchement au niveau des heures début/fin
+                    endTime_spectacle.compareTo(tmp_representation.getDate()) > 0
+            )
+            {
+                prog_possible = false;
+                break;
+            }
+        }
+
+        return prog_possible;
+    }
+
+    /**
+     *  Ajoute une représentation au spectacle
+     * @param representation : représentation à ajouter
+     * @assert la date de la présentation ne chevauche pas les dates des autres représentations du spectacle
+     */
+    public void ajouterRepresentation(Representation representation)
+    {
+        assert(progPossible(representation));
+        representations.add(representation);
     }
 }
