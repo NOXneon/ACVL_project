@@ -1,12 +1,12 @@
 package Modele.Theatre;
 
+import java.util.ArrayList;
+
 /**
  * Représente un spectacle mis en scène par le biai de différentes représentations
  *
  * @see Represantation
  */
-
-// TODO : lier la classe à Représentation
 
 public class Spectacle
 {
@@ -21,14 +21,21 @@ public class Spectacle
     private String nom;
 
     /**
+     * Représente la liste des représentations du spectacle
+     */
+    private ArrayList<Represantation> represantations;
+
+    /**
      * Constructeur paramétré
      * @param numero : numéro ID du spectacle
      * @param nom : nom du spectacle
+     * @param represantations : liste des représentations
      */
-    public Spectacle(String numero, String nom)
+    public Spectacle(String numero, String nom, ArrayList<Represantation> represantations)
     {
         this.numero = numero;
         this.nom = nom;
+        this.represantations = represantations;
     }
 
     /**
@@ -47,5 +54,14 @@ public class Spectacle
     public String getNom()
     {
         return nom;
+    }
+
+    /**
+     * Getter
+     * @return represantations : liste des représentations du spectacle
+     */
+    public ArrayList<Represantation> getRepresantations()
+    {
+        return represantations;
     }
 }

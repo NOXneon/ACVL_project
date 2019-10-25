@@ -1,8 +1,10 @@
 package Modele.Billetterie;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 import Modele.Statut;
+import Modele.Theatre.Place;
 
 /**
  * Représente la réservation de place(s)
@@ -11,8 +13,6 @@ import Modele.Statut;
  * @see Modele.Utilisateur.Client
  * @see Modele.Utilisateur.Respo_Programmation
  */
-
-// TODO : lier la classe à Place
 
 public class Reservation
 {
@@ -32,16 +32,23 @@ public class Reservation
     private Statut statut;
 
     /**
+     * Représente la liste des places réservées
+     */
+    private ArrayList<Place> places;
+
+    /**
      * Constructeur
      * @param num_res : numéro de réservation
      * @param date : date de réservation
+     * @param places : liste des places réservées
      */
-    public Reservation(String num_res, Date date)
+    public Reservation(String num_res, Date date, ArrayList<Place> places)
     {
         this.num_res = num_res;
         this.date = date;
         // Statut par défaut : Valide_e
         this.statut = Statut.Valide_e;
+        this.places = places;
     }
 
     /**
@@ -78,5 +85,14 @@ public class Reservation
     public void setStatut(Statut statut)
     {
         this.statut = statut;
+    }
+
+    /**
+     * Getter
+     * @return places : liste des places réservées
+     */
+    public ArrayList<Place> getPlaces()
+    {
+        return places;
     }
 }
