@@ -1,8 +1,10 @@
 package Modele.Billetterie;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 import Modele.Statut;
+import Modele.Theatre.Place;
 
 /**
  * Représente le dossier d'achat de place(s)
@@ -11,9 +13,6 @@ import Modele.Statut;
  * @see Modele.Theatre.Place
  * @see Ticket
  */
-
-// TODO : lier la classe à Reservation
-// TODO : lier la classe à Place
 
 public class Achat
 {
@@ -33,16 +32,30 @@ public class Achat
     private Statut statut;
 
     /**
+     * Représente l'éventuelle réservation effectuée en préalable
+     */
+    private Reservation reservation;
+
+    /**
+     * Représente la liste des places achetées
+     */
+    private ArrayList<Place> places;
+
+    /**
      * Constructeur
      * @param num_achat : numéro d'achat
      * @param date : date d'achat
+     * @param reservation : éventuelle réservation effectuée au préalable
+     * @param places : liste des places achetées
      */
-    public Achat(String num_achat, Date date)
+    public Achat(String num_achat, Date date, Reservation reservation, ArrayList<Place> places)
     {
         this.num_achat = num_achat;
         this.date = date;
         // Statut par défaut : Valide_e
         this.statut = Statut.Valide_e;
+        this.reservation = reservation;
+        this.places = places;
     }
 
     /**
@@ -79,5 +92,23 @@ public class Achat
     public void setStatut(Statut statut)
     {
         this.statut = statut;
+    }
+
+    /**
+     * Getter
+     * @return reservation : représente l'éventuelle réservation effectuée au préalable
+     */
+    public Reservation getReservation()
+    {
+        return reservation;
+    }
+
+    /**
+     * Getter
+     * @return places : représente la liste des places achetées
+     */
+    public ArrayList<Place> getPlaces()
+    {
+        return places;
     }
 }

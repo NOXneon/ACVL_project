@@ -1,6 +1,7 @@
 package Modele.Billetterie;
 
 import Modele.Statut;
+import Modele.Theatre.Place;
 
 /**
  * Représente le ticket émis suite à un achat de place
@@ -10,8 +11,6 @@ import Modele.Statut;
  * @see Modele.Utilisateur.Client
  * @see Modele.Utilisateur.Respo_Programmation
  */
-
-// TODO : lier la classe à Achat
 
 public class Ticket
 {
@@ -31,16 +30,30 @@ public class Ticket
     private Statut statut;
 
     /**
+     * Représente le dossier d'achat
+     */
+    private Achat achat;
+
+    /**
+     * Représente la place achetée
+     */
+    private Place place;
+
+    /**
      * Constructeur
      * @param num_serie : numéro de série du ticket concernant l'achat de place
      * @param date : date d'émission du ticket
+     * @param achat : représente le dossier d'achat
+     * @param place : représente la place achetée
      */
-    public Ticket(String num_serie, String date)
+    public Ticket(String num_serie, String date, Achat achat, Place place)
     {
         this.num_serie = num_serie;
         this.date = date;
         // Statut par défaut : Valide_e
         this.statut = Statut.Valide_e;
+        this.achat = achat;
+        this.place = place;
     }
 
     /**
@@ -77,5 +90,23 @@ public class Ticket
     public void setStatut(Statut statut)
     {
         this.statut = statut;
+    }
+
+    /**
+     * Getter
+     * @return achat : représente le dossier d'achat
+     */
+    public Achat getAchat()
+    {
+        return achat;
+    }
+
+    /**
+     * Getter
+     * @return place : représente la place achetée
+     */
+    public Place getPlace()
+    {
+        return place;
     }
 }
