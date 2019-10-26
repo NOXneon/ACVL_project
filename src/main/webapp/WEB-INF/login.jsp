@@ -5,37 +5,35 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<script src="ressources/login.js"></script>
 <link rel="stylesheet" type="text/css" href="ressources/style.css">
-<title>Théâtre SAW - Accueil</title>
+<title>Théâtre SAW - Connexion</title>
 </head>
-<body>
+<body onLoad="loadData()">
 	<div class="header">
 		<h1>Théâtre SAW</h1>
 	</div>
-	<h2>Connection</h2>
+	<h2>Connexion</h2>
 
-	<form action="LoginServlet" method="post">
+	<div class = "form">
 
 		<div class="container">
 			<label><b>Nom d'utilisateur</b></label>
-			<input type="text" name="uname" required>
+			<input type="text" id="uname" required>
 			<label ><b>Mot de passe</b></label>
-			<input type="password" name="psw" required>
+			<input type="password" id="psw" required>
 
-			<button type="submit">Se connecter en tant que</button>
+			<button onClick="login()">Se connecter en tant que</button>
 			<div>
-				<label> <input type="radio" checked="checked"
-					name="utilisateur"> Utilisateur
-				</label> <label> <input type="radio" name="respProg"> Resp.
-					Prog.
-				</label> <label> <input type="radio" name="admin"> Admin
-				</label>
+				<label> <input type="radio" name="user" value = "utilisateur"> Utilisateur</label>
+				<label> <input type="radio" name="user" value = "respProg"> Resp. Prog.</label> 
+				<label> <input type="radio" name="user" value = "admin"> Admin</label>
 			</div>
 		</div>
 
 		<div class="container" style="background-color: #f1f1f1">
-			<button type="button" class="cancelbtn">Inscription</button>
+			<button type="button" class="cancelbtn" onClick="Inscription()">Inscription</button>
 		</div>
-	</form>
+	</div>
 </body>
 </html>

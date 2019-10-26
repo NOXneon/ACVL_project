@@ -1,5 +1,7 @@
 package Modele.Theatre;
 
+import Modele.ExceptionChevauchement;
+
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
@@ -23,17 +25,17 @@ public final class Salle
     /**
      * Représente une des 3 zones de la salle
      */
-    private Balcon zone_Balcon;
+    private Zone zone_Balcon;
 
     /**
      * Représente une des 3 zones de la salle
      */
-    private Poulailler zone_Poulailler;
+    private Zone zone_Poulailler;
 
     /**
      * Représente une des 3 zones de la salle
      */
-    private Orchestre zone_Orchestre;
+    private Zone zone_Orchestre;
 
     /**
      * Représente la liste des spectacles programmés dans la salle
@@ -42,27 +44,35 @@ public final class Salle
 
     /**
      * Constructeur
-     * @param nb_places : nombre de places dans la salle
-     * @param spectacles : liste des spectacles programmés dans la salle
      */
-    private Salle(int nb_places, ArrayList<Spectacle> spectacles)
+    private Salle()
     {
-        this.nb_places = nb_places;
-        this.zone_Balcon = Balcon.getBALCON();
-        this.zone_Poulailler = Poulailler.getPOULAILLER();
-        this.zone_Orchestre = Orchestre.getORCHESTRE();
+
+    }
+
+    /**
+     * Constructeur
+     * @param spectacles : liste des spectacles programmés dans la salle
+     * @param zone_Balcon : représente la zone Balcon
+     * @param zone_Poulailler : représente la zone Poulailler
+     * @param zone_Orchestre : représente la zone Orchestre
+     */
+    private Salle(ArrayList<Spectacle> spectacles, Zone zone_Balcon, Zone zone_Poulailler, Zone zone_Orchestre)
+    {
+        this.zone_Balcon = zone_Balcon;
+        this.zone_Poulailler = zone_Poulailler;
+        this.zone_Orchestre = zone_Orchestre;
         this.spectacles = spectacles;
     }
 
     /**
      * Point d'accès à l'instance unique de Salle
-     * @param spectacles : liste des spectacles programmés dans la salle
      * @return SALLE : Salle unique
      */
-    public static synchronized Salle getSALLE(ArrayList<Spectacle> spectacles)
+    public static synchronized Salle getSALLE(ArrayList<Spectacle> spectacles, Zone zone_Balcon, Zone zone_Poulailler, Zone zone_Orchestre)
     {
         if(SALLE == null)
-            SALLE = new Salle(nb_places, spectacles);
+            SALLE = new Salle();
 
         return SALLE;
     }
@@ -76,12 +86,11 @@ public final class Salle
         return nb_places;
     }
 
-
     /**
      * Getter
      * @return zone_Balcon : représente la zone Balcon
      */
-    public Balcon getZone_Balcon()
+    public Zone getZone_Balcon()
     {
         return zone_Balcon;
     }
@@ -90,7 +99,7 @@ public final class Salle
      * Getter
      * @return zone_Poulailler : représente la zone Poulailler
      */
-    public Poulailler getZone_Poulailler()
+    public Zone getZone_Poulailler()
     {
         return zone_Poulailler;
     }
@@ -99,7 +108,7 @@ public final class Salle
      * Getter
      * @return zone_Orchestre : représente la zone Orchestre
      */
-    public Orchestre getZone_Orchestre()
+    public Zone getZone_Orchestre()
     {
         return zone_Orchestre;
     }
@@ -152,11 +161,26 @@ public final class Salle
     /**
      * Ajoute un spectacle à la liste des spectacles
      * @param spectacle : spectacle à ajouter
-     * @assert Les représentations du spectacle à ajouter ne chevauchent pas les représentations des autres spectacles
+     * @throws ExceptionChevauchement : quand il y a un chevauchement de dates
      */
-    public void ajouterSpectacle(Spectacle spectacle)
+    public void ajouterSpectacle(Spectacle spectacle) throws ExceptionChevauchement
     {
-        assert(progPossible(spectacle));
-        spectacles.add(spectacle);
+        if(progPossible(spectacle))
+            spectacles.add(spectacle);
+        else
+            throw new ExceptionChevauchement();
+    }
+
+    /**
+     * Supprime un spectacle de la liste des spectacles
+     * @param spectacle : spectacle à supprimer
+     */
+    public void supprimerSpectacle(Spectacle spectacle)
+    {
+        for(Spectacle tmp_spectacle : spectacles)
+        {
+            if(spectacle.equals(tmp_spectacle))
+                spectacles.remove(spectacle);
+        }
     }
 }

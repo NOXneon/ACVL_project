@@ -4,6 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<script src="ressources/register.js"></script>
 <link rel="stylesheet" type="text/css" href="ressources/style.css">
 <title>Théâtre SAW - Inscription</title>
 </head>
@@ -13,36 +14,28 @@
 	</div>
 	<h2>Inscription</h2>
 
-	<form action="RegisterServlet" method="post">
+	<div class = "form">
 
 		<div class="container">
 			<label><b>Nom</b></label> 
-			<input type="text" name="name" required> 
+			<input type="text" id="name" required> 
 			<label ><b>Prénom</b></label> 
-			<input	type="text" name="surname" required>
+			<input	type="text" id="surname" required>
 			<label ><b>Nom d'utilisateur</b></label>
-			<input type="text" name="uname" required>
+			<input type="text" id="uname" required>
 			<label ><b>Mot de passe</b></label>
-			<input type="password" name="psw" required>
+			<input type="password" id="psw" required>
 			<label ><b>Adresse mail</b></label>
-			<input type="text" name="mail" required>
+			<input type="text" id="mail" required>
 			<label ><b>Téléphone</b></label>
-			<input type="text" name="number" required>
+			<input type="text" id="number" required>
 
-			<button type="submit">S'inscrire en tant que</button>
-			<div>
-				<label> <input type="radio" checked="checked"
-					name="utilisateur"> Utilisateur
-				</label> <label> <input type="radio" name="respProg"> Resp.
-					Prog.
-				</label> <label> <input type="radio" name="admin"> Admin
-				</label>
-			</div>
+			<button onClick="signUp()">S'inscrire</button>
 		</div>
 
 		<div class="container" style="background-color: #f1f1f1">
-			<button type="button" class="cancelbtn">Connection</button>
+			<button type="button" class="cancelbtn" onClick="Connexion()">Connexion</button>
 		</div>
-	</form>
+	</div>
 </body>
 </html>
