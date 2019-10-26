@@ -20,4 +20,16 @@ public class RegisterServlet extends HttpServlet {
 		   
 		this.getServletContext().getRequestDispatcher("/WEB-INF/register.jsp").forward(request, response);
 	    }
+	
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+		    throws ServletException, IOException {
+		   String name = request.getParameter("name");
+		   String surname = request.getParameter("surname");
+		   String username = request.getParameter("uname");
+		   String password = request.getParameter("psw");
+		   String mail = request.getParameter("mail");
+		   String number = request.getParameter("number");
+		   
+		this.getServletContext().getRequestDispatcher("/WEB-INF/register.jsp").forward(request, response);
+	    }
 }

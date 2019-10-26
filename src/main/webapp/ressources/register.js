@@ -16,16 +16,17 @@ function signUp() {
 	} else if (!checkPhone(phone)) {
 		alert("Numéro de téléphone non conforme");
 	} else {
-		users.push({
-			'name' : name,
-			'surname' : surname,
-			'username' : username,
-			'password' : password,
-			'mail' : mail,
-			'phone' : phone
-		});
-		alert("Nouvel utilisateur créé");
-		localStorage.setItem('users', JSON.stringify(users));
+		document.getElementById("registerForm").submit();
+//		users.push({
+//			'name' : name,
+//			'surname' : surname,
+//			'username' : username,
+//			'password' : password,
+//			'mail' : mail,
+//			'phone' : phone
+//		});
+//		alert("Nouvel utilisateur créé");
+//		localStorage.setItem('users', JSON.stringify(users));
 	}
 }
 
