@@ -6,11 +6,11 @@
   <display-name>Archetype Created Web Application</display-name>
   <servlet>
   	<servlet-name>Login</servlet-name>
-  	<servlet-class>controller.LoginServlet</servlet-class>
+  	<servlet-class>Controleur.LoginServlet</servlet-class>
   </servlet>
   <servlet>
   	<servlet-name>Register</servlet-name>
-  	<servlet-class>controller.RegisterServlet</servlet-class>
+  	<servlet-class>Controleur.RegisterServlet</servlet-class>
   </servlet>
   
   
