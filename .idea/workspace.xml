@@ -3,8 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="e75716be-705d-4551-98c3-bc3703e4d277" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Modele/Theatre/Salle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Modele/Theatre/Salle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Modele/Theatre/Spectacle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Modele/Theatre/Spectacle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Modele/Billetterie/Reservation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Modele/Billetterie/Reservation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Modele/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Modele/Test.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Modele/Theatre/Place.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Modele/Theatre/Place.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Modele/Utilisateur/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Modele/Utilisateur/Client.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -16,6 +18,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Enum" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -37,12 +40,6 @@
       </MavenImportingSettings>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="15" />
-    <option name="y" value="30" />
-    <option name="width" value="1890" />
-    <option name="height" value="1161" />
-  </component>
   <component name="ProjectId" id="1Si18nGIi2F28aUfa2snD0aG0Zi" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -55,7 +52,7 @@
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="MavenSettings" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RunAnythingCache">
     <option name="myCommands">
@@ -75,6 +72,26 @@
       </list>
     </option>
   </component>
+  <component name="RunManager">
+    <configuration name="Test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Modele.Test" />
+      <module name="ACVL_project" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Modele.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Test" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -92,6 +109,9 @@
       <workItem from="1571901831992" duration="686000" />
       <workItem from="1572029904311" duration="356000" />
       <workItem from="1572031459698" duration="6348000" />
+      <workItem from="1572053578755" duration="97000" />
+      <workItem from="1572053717376" duration="4937000" />
+      <workItem from="1572088693656" duration="5962000" />
     </task>
     <servers />
   </component>
@@ -110,6 +130,17 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/Modele/Test.java</url>
+          <line>117</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="masterDetails">
     <states>

@@ -11,7 +11,7 @@ import Modele.Statut;
  * @see Salle
  */
 
-public class Representation
+public final class Representation
 {
     /**
      * Représente la date et heure de la représentation
@@ -75,5 +75,19 @@ public class Representation
     public void setStatut(Statut statut)
     {
         this.statut = statut;
+    }
+
+    /**
+     * Retourne un string contenant les valeurs des attributs de la représentation
+     * @return affiche : affiche de la représentation
+     */
+    public String getAffiche()
+    {
+        String affiche = "";
+
+        affiche += "Date : " + this.getDate() + "\n"
+                + "Duree : " +this.getDuree() + "\n"
+                + "Statut : " + this.getStatut() + "\n";
+        return affiche;
     }
 }

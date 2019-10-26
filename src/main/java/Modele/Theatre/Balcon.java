@@ -19,7 +19,7 @@ public final class Balcon extends Categorie
      *
      * @param tarif : tarif de la place dans la catégorie de zone
      */
-    public Balcon(float tarif)
+    private Balcon(float tarif)
     {
         super(tarif);
     }

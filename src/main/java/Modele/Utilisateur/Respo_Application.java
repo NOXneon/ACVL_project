@@ -1,10 +1,17 @@
 package Modele.Utilisateur;
 
+import Modele.Billetterie.Billetterie;
+import Modele.Billetterie.Reservation;
+import Modele.Etat;
+import Modele.Statut;
+import Modele.Theatre.Place;
+import Modele.Theatre.Representation;
+
 /**
  * Représente le responsable de programmation du théâtre
  */
 
-public class Respo_Application extends Responsable
+public final class Respo_Application extends Responsable
 {
     /**
      * Constructeur
@@ -19,5 +26,24 @@ public class Respo_Application extends Responsable
     public Respo_Application(String nom, String prenom, String login, String mdp, String mail, String tel)
     {
         super(nom, prenom, login, mdp, mail, tel);
+    }
+
+    /**
+     * Libère les places comprises dans la réservation à annuler
+     * @param reservation : réservation à annuler
+     */
+    public void libererPlace(Reservation reservation)
+    {
+        // Changer le statut de la réservation
+        reservation.setStatut(Statut.Annule_e);
+
+        // Libérer les places
+        for(Place tmp_place : reservation.getPlaces())
+        {
+            tmp_place.setEtat(Etat.Libre);
+        }
+
+        // Supprimer la réservation
+        Billetterie.getBILLETTERIE().supprimerReservation(reservation);
     }
 }

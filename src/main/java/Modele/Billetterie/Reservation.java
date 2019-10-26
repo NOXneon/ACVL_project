@@ -5,6 +5,7 @@ import java.util.Date;
 
 import Modele.Statut;
 import Modele.Theatre.Place;
+import Modele.Theatre.Representation;
 
 /**
  * Représente la réservation de place(s)
@@ -14,8 +15,12 @@ import Modele.Theatre.Place;
  * @see Modele.Utilisateur.Respo_Programmation
  */
 
-public class Reservation
+public final class Reservation
 {
+    /**
+     * Représente le compteur pour la création du num_res
+     */
+    private int cpt=1;
     /**
      * Représente le numéro de réservation
      */
@@ -37,18 +42,24 @@ public class Reservation
     private ArrayList<Place> places;
 
     /**
+     * Représente la représentation à assister
+     */
+    private Representation representation;
+
+    /**
      * Constructeur
-     * @param num_res : numéro de réservation
      * @param date : date de réservation
      * @param places : liste des places réservées
+     * @param representation : représentation à assister
      */
-    public Reservation(String num_res, Date date, ArrayList<Place> places)
+    public Reservation(Date date, ArrayList<Place> places, Representation representation)
     {
-        this.num_res = num_res;
+        this.num_res = "Res n°"+cpt; cpt++;
         this.date = date;
         // Statut par défaut : Valide_e
         this.statut = Statut.Valide_e;
         this.places = places;
+        this.representation = representation;
     }
 
     /**
@@ -94,5 +105,36 @@ public class Reservation
     public ArrayList<Place> getPlaces()
     {
         return places;
+    }
+
+    /**
+     * Getter
+     * @return representation : la représentation à assister
+     */
+    public Representation getRepresentation()
+    {
+        return representation;
+    }
+
+    /**
+     * Représente un récapitulatif de la réservation
+     * @return recap : récépitulatif de la réservation
+     */
+    public String recap()
+    {
+        String recap = "";
+        String places = "";
+
+        for(Place place : this.getPlaces())
+        {
+            places+= place.descriptif();
+        }
+
+
+        recap += "Date : " + this.getDate() + "\n"
+                + "Places : " + places + "\n"
+                + "Representation : " + this.getRepresentation().getAffiche() + "\n\n";
+
+        return recap;
     }
 }
