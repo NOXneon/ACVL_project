@@ -1,5 +1,9 @@
 package Modele.Billetterie;
 
+import Modele.Etat;
+import Modele.Statut;
+import Modele.Theatre.Place;
+
 import java.util.ArrayList;
 
 /**
@@ -90,7 +94,12 @@ public final class Billetterie
         for(Reservation tmp_reservation : reservations)
         {
             if(reservation.equals(tmp_reservation))
-                reservations.remove(reservation);
+            {
+                reservation.setStatut(Statut.Annule_e);
+                for(Place tmp_place : reservation.getPlaces())
+                    tmp_place.setEtat(Etat.Libre);
+            }
+
         }
     }
 
@@ -103,7 +112,22 @@ public final class Billetterie
         for(Achat tmp_achat : achats)
         {
             if(achat.equals(tmp_achat))
-                achats.remove(achat);
+            {
+                achat.setStatut(Statut.Annule_e);
+                for(Place tmp_place : achat.getPlaces())
+                {
+                    tmp_place.setEtat(Etat.Libre);
+                    for(Ticket tmp_ticket : tickets)
+                    {
+                        if(tmp_ticket.getAchat().equals(achat))
+                        {
+                            tmp_ticket.setStatut(Statut.Annule_e);
+                        }
+                    }
+                }
+
+            }
+
         }
     }
 
@@ -116,7 +140,7 @@ public final class Billetterie
         for(Ticket tmp_ticket : tickets)
         {
             if(ticket.equals(tmp_ticket))
-                tickets.remove(ticket);
+                ticket.setStatut(Statut.Annule_e);
         }
     }
 }

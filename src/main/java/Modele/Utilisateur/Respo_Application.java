@@ -5,7 +5,6 @@ import Modele.Billetterie.Reservation;
 import Modele.Etat;
 import Modele.Statut;
 import Modele.Theatre.Place;
-import Modele.Theatre.Representation;
 
 /**
  * Représente le responsable de programmation du théâtre

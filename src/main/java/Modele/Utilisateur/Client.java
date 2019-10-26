@@ -2,6 +2,7 @@ package Modele.Utilisateur;
 
 import Modele.*;
 import Modele.Billetterie.Achat;
+import Modele.Billetterie.Billetterie;
 import Modele.Billetterie.Reservation;
 import Modele.Theatre.*;
 
@@ -122,6 +123,7 @@ public final class Client extends Utilisateur
                         places.add(place);
                         reservation = new Reservation(new Date(),places,representation);
                         reservations.add(reservation);
+                        Billetterie.getBILLETTERIE().ajouterReservation(reservation);
                         return reservation;
                     }
                     else
@@ -151,6 +153,7 @@ public final class Client extends Utilisateur
                         places.add(place);
                         reservation = new Reservation(new Date(),places,representation);
                         reservations.add(reservation);
+                        Billetterie.getBILLETTERIE().ajouterReservation(reservation);
                         return reservation;
                     }
                     else
@@ -179,6 +182,7 @@ public final class Client extends Utilisateur
                         places.add(place);
                         reservation = new Reservation(new Date(),places,representation);
                         reservations.add(reservation);
+                        Billetterie.getBILLETTERIE().ajouterReservation(reservation);
                         return reservation;
                     }
                     else
@@ -196,5 +200,31 @@ public final class Client extends Utilisateur
                 throw new ExceptionRepresentationInconnue();
             }
         }
+    }
+
+    /**
+     * Annule une réservation
+     * @param reservation : réservation à annuler
+     */
+    public void annulerReservation(Reservation reservation)
+    {
+        reservations.remove(reservation);
+        Billetterie.getBILLETTERIE().supprimerReservation(reservation);
+    }
+
+    /**
+     * Liste les différentes réservations effectuées
+     * @return liste de réservations du client
+     */
+    public String listerReservations()
+    {
+        String liste = "";
+
+        for(Reservation tmp_reservation : reservations)
+        {
+            liste += tmp_reservation.recap() + "\n";
+        }
+
+        return liste;
     }
 }

@@ -14,6 +14,11 @@ import java.util.Date;
 public final class Spectacle
 {
     /**
+     * Représente le compteur pour créer le numero du spectacle
+     */
+    private int cpt = 1;
+
+    /**
      * Représete le numéro ID du spectacle
      */
     private String numero;
@@ -30,13 +35,12 @@ public final class Spectacle
 
     /**
      * Constructeur paramétré
-     * @param numero : numéro ID du spectacle
      * @param nom : nom du spectacle
      * @param representations : liste des représentations
      */
-    public Spectacle(String numero, String nom, ArrayList<Representation> representations)
+    public Spectacle(String nom, ArrayList<Representation> representations)
     {
-        this.numero = numero;
+        this.numero = "SPC n°"+cpt; cpt++;
         this.nom = nom;
         this.representations = representations;
     }
@@ -138,5 +142,13 @@ public final class Spectacle
         affiches += "\n";
 
         return affiches;
+    }
+
+    @Override
+    public boolean equals(Object obj)
+    {
+        Spectacle spectacle = (Spectacle) obj;
+
+        return this.getNumero() == spectacle.getNumero();
     }
 }

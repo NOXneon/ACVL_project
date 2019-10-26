@@ -18,6 +18,11 @@ import Modele.Theatre.Representation;
 public final class Achat
 {
     /**
+     * Représente le compteur pour créer le num_achat
+     */
+    private int cpt = 1;
+
+    /**
      * Représente le numéro d'achat
      */
     private String num_achat;
@@ -49,14 +54,13 @@ public final class Achat
 
     /**
      * Constructeur
-     * @param num_achat : numéro d'achat
      * @param date : date d'achat
      * @param reservation : éventuelle réservation effectuée au préalable
      * @param places : liste des places achetées
      */
-    public Achat(String num_achat, Date date, Reservation reservation, ArrayList<Place> places, Representation representation)
+    public Achat(Date date, Reservation reservation, ArrayList<Place> places, Representation representation)
     {
-        this.num_achat = num_achat;
+        this.num_achat = "ACH n°"+cpt; cpt++;
         this.date = date;
         // Statut par défaut : Valide_e
         this.statut = Statut.Valide_e;
@@ -126,5 +130,18 @@ public final class Achat
     public Representation getRepresentation()
     {
         return representation;
+    }
+
+    /**
+     * Vérifie si deux achats sont les mêmes (selon le num)
+     * @param obj : deuxième achat
+     * @return vrai si les deux numéros sont égaux
+     */
+    @Override
+    public boolean equals(Object obj)
+    {
+        Achat achat = (Achat) obj;
+
+        return this.getNum_achat() == achat.getNum_achat();
     }
 }

@@ -54,7 +54,7 @@ public final class Reservation
      */
     public Reservation(Date date, ArrayList<Place> places, Representation representation)
     {
-        this.num_res = "Res n°"+cpt; cpt++;
+        this.num_res = "RES n°"+cpt; cpt++;
         this.date = date;
         // Statut par défaut : Valide_e
         this.statut = Statut.Valide_e;
@@ -127,7 +127,7 @@ public final class Reservation
 
         for(Place place : this.getPlaces())
         {
-            places+= place.descriptif();
+            places += place.descriptif();
         }
 
 
@@ -136,5 +136,18 @@ public final class Reservation
                 + "Representation : " + this.getRepresentation().getAffiche() + "\n\n";
 
         return recap;
+    }
+
+    /**
+     * Vérifie que deux réservations sont les mêmes (selon le num_res)
+     * @param obj : deuxième réservation
+     * @return vrai si les deux numéros sont égaux
+     */
+    @Override
+    public boolean equals(Object obj)
+    {
+        Reservation reservation = (Reservation) obj;
+
+        return this.getNum_res() == reservation.getNum_res();
     }
 }

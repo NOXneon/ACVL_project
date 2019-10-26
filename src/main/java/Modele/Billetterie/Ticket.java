@@ -15,6 +15,11 @@ import Modele.Theatre.Place;
 public final class Ticket
 {
     /**
+     * Représente le compteur pour créer le num_serie
+     */
+    private int cpt = 1;
+
+    /**
      * Représente le numéro de série du ticket concernant l'achat de place
      */
     private String num_serie;
@@ -41,14 +46,13 @@ public final class Ticket
 
     /**
      * Constructeur
-     * @param num_serie : numéro de série du ticket concernant l'achat de place
      * @param date : date d'émission du ticket
      * @param achat : représente le dossier d'achat
      * @param place : représente la place achetée
      */
-    public Ticket(String num_serie, String date, Achat achat, Place place)
+    public Ticket(String date, Achat achat, Place place)
     {
-        this.num_serie = num_serie;
+        this.num_serie = "TK n°"+cpt; cpt++;
         this.date = date;
         // Statut par défaut : Valide_e
         this.statut = Statut.Valide_e;
@@ -108,5 +112,18 @@ public final class Ticket
     public Place getPlace()
     {
         return place;
+    }
+
+    /**
+     * Vérifie si deux tickets sont les mêmes
+     * @param obj : deuxième ticket
+     * @return vrai si les deux num_serie sont égaux
+     */
+    @Override
+    public boolean equals(Object obj)
+    {
+        Ticket ticket = (Ticket) obj;
+
+        return this.getNum_serie() == ticket.getNum_serie();
     }
 }
