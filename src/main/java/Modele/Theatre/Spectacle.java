@@ -1,5 +1,7 @@
 package Modele.Theatre;
 
+import Modele.ExceptionChevauchement;
+
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -97,13 +99,28 @@ public class Spectacle
     }
 
     /**
-     *  Ajoute une représentation au spectacle
+     *  Ajoute une représentation du spectacle
      * @param representation : représentation à ajouter
-     * @assert la date de la présentation ne chevauche pas les dates des autres représentations du spectacle
+     * @throws ExceptionChevauchement : quand il y a un chevauchement de dates
      */
-    public void ajouterRepresentation(Representation representation)
+    public void ajouterRepresentation(Representation representation) throws ExceptionChevauchement
     {
-        assert(progPossible(representation));
-        representations.add(representation);
+        if(progPossible(representation))
+            representations.add(representation);
+        else
+            throw new ExceptionChevauchement();
+    }
+
+    /**
+     * Supprime une représentation du spectacle
+     * @param representation : représentation à supprimer
+     */
+    public void supprimerRepresentation(Representation representation)
+    {
+        for(Representation tmp_representation : representations)
+        {
+            if(representation.equals(tmp_representation))
+                representations.remove(representation);
+        }
     }
 }
