@@ -31,13 +31,12 @@ public final class Respo_Programmation extends Responsable
 
     /**
      * Programme un spectacle dans la salle
-     * @param numero : numero unique du spectacle
      * @param nom : nom du spectacle
      * @param representations : représentations du spectacle
      */
-    public void programmerSpectacle(String numero, String nom, ArrayList<Representation> representations) throws ExceptionChevauchement
+    public void programmerSpectacle(String nom, ArrayList<Representation> representations) throws ExceptionChevauchement
     {
-        Spectacle spectacle = new Spectacle(numero, nom, representations);
+        Spectacle spectacle = new Spectacle(nom, representations);
         Theatre.getTHEATRE().ajouterSpectacle(spectacle);
     }
 

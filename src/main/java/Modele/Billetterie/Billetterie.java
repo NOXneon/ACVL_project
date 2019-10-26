@@ -96,7 +96,6 @@ public final class Billetterie
             if(reservation.equals(tmp_reservation))
             {
                 reservation.setStatut(Statut.Annule_e);
-                reservations.remove(reservation);
                 for(Place tmp_place : reservation.getPlaces())
                     tmp_place.setEtat(Etat.Libre);
             }
@@ -115,7 +114,6 @@ public final class Billetterie
             if(achat.equals(tmp_achat))
             {
                 achat.setStatut(Statut.Annule_e);
-                achats.remove(achat);
                 for(Place tmp_place : achat.getPlaces())
                 {
                     tmp_place.setEtat(Etat.Libre);
@@ -124,7 +122,6 @@ public final class Billetterie
                         if(tmp_ticket.getAchat().equals(achat))
                         {
                             tmp_ticket.setStatut(Statut.Annule_e);
-                            tickets.remove(tmp_ticket);
                         }
                     }
                 }
@@ -144,7 +141,6 @@ public final class Billetterie
         {
             if(ticket.equals(tmp_ticket))
                 ticket.setStatut(Statut.Annule_e);
-                tickets.remove(ticket);
         }
     }
 }
