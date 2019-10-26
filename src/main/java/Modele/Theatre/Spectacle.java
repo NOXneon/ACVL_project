@@ -11,7 +11,7 @@ import java.util.Date;
  * @see Representation
  */
 
-public class Spectacle
+public final class Spectacle
 {
     /**
      * Représete le numéro ID du spectacle

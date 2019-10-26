@@ -11,7 +11,7 @@ import Modele.Statut;
  * @see Salle
  */
 
-public class Representation
+public final class Representation
 {
     /**
      * Représente la date et heure de la représentation

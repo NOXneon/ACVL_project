@@ -1,10 +1,18 @@
 package Modele.Utilisateur;
 
+import Modele.ExceptionChevauchement;
+import Modele.Theatre.Representation;
+import Modele.Theatre.Salle;
+import Modele.Theatre.Spectacle;
+import Modele.Theatre.Theatre;
+
+import java.util.ArrayList;
+
 /**
  * Représente le responsable de l'application du théâtre
  */
 
-public class Respo_Programmation extends Responsable
+public final class Respo_Programmation extends Responsable
 {
     /**
      * Constructeur
@@ -19,5 +27,26 @@ public class Respo_Programmation extends Responsable
     public Respo_Programmation(String nom, String prenom, String login, String mdp, String mail, String tel)
     {
         super(nom, prenom, login, mdp, mail, tel);
+    }
+
+    /**
+     * Programme un spectacle dans la salle
+     * @param numero : numero unique du spectacle
+     * @param nom : nom du spectacle
+     * @param representations : représentations du spectacle
+     */
+    public void programmerSpectacle(String numero, String nom, ArrayList<Representation> representations) throws ExceptionChevauchement
+    {
+        Spectacle spectacle = new Spectacle(numero, nom, representations);
+        Theatre.getTHEATRE().ajouterSpectacle(spectacle);
+    }
+
+    /**
+     * Déprogramme un spectacle de la salle
+     * @param spectacle : spectacle à déprogrammer
+     */
+    public void deprogrammerSpectacle(Spectacle spectacle)
+    {
+        Theatre.getTHEATRE().supprimerSpectacle(spectacle);
     }
 }

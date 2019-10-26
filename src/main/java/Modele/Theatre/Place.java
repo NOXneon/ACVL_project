@@ -8,7 +8,7 @@ import Modele.Etat;
  * @see Salle
  */
 
-public class Place
+public final class Place
 {
     /**
      * Représente le numéro de la place
