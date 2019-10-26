@@ -38,38 +38,20 @@ public final class Salle
     private Zone zone_Orchestre;
 
     /**
-     * Représente la liste des spectacles programmés dans la salle
-     */
-    private ArrayList<Spectacle> spectacles;
-
-    /**
      * Constructeur
      */
     private Salle()
     {
-
-    }
-
-    /**
-     * Constructeur
-     * @param spectacles : liste des spectacles programmés dans la salle
-     * @param zone_Balcon : représente la zone Balcon
-     * @param zone_Poulailler : représente la zone Poulailler
-     * @param zone_Orchestre : représente la zone Orchestre
-     */
-    private Salle(ArrayList<Spectacle> spectacles, Zone zone_Balcon, Zone zone_Poulailler, Zone zone_Orchestre)
-    {
-        this.zone_Balcon = zone_Balcon;
-        this.zone_Poulailler = zone_Poulailler;
-        this.zone_Orchestre = zone_Orchestre;
-        this.spectacles = spectacles;
+        this.zone_Balcon = new Zone(Balcon.getBALCON());
+        this.zone_Poulailler = new Zone(Poulailler.getPOULAILLER());
+        this.zone_Orchestre = new Zone(Orchestre.getORCHESTRE());
     }
 
     /**
      * Point d'accès à l'instance unique de Salle
      * @return SALLE : Salle unique
      */
-    public static synchronized Salle getSALLE(ArrayList<Spectacle> spectacles, Zone zone_Balcon, Zone zone_Poulailler, Zone zone_Orchestre)
+    public static synchronized Salle getSALLE()
     {
         if(SALLE == null)
             SALLE = new Salle();
@@ -111,76 +93,5 @@ public final class Salle
     public Zone getZone_Orchestre()
     {
         return zone_Orchestre;
-    }
-
-    /**
-     * Getter
-     * @return spectacles : représente la liste des spectacles programmés dans la salle
-     */
-    public ArrayList<Spectacle> getSpectacles()
-    {
-        return spectacles;
-    }
-
-    /**
-     * Vérifie que les représentations du spectacle choisie ne chevauchent pas celles des autres spectacles existants
-     * @param spectacle : spectacle choisi
-     * @return prog_possible : booléen représentant si la programmation du spectacle est possible
-     *         (donc toutes ses représentations ne chevauchent aucune autre représentation)
-     */
-    public boolean progPossible(Spectacle spectacle)
-    {
-        boolean prog_possible = true;
-
-        for(Representation tmp_representation : spectacle.getRepresentations())
-        {
-            for(Spectacle tmp_spectacle : spectacles)
-            {
-                for(Representation tmp_representation1 : tmp_spectacle.getRepresentations())
-                {
-                    // Calcul de la Date fin du premier spectacle
-                    Date endTime_tmp_spectacle = new Date(tmp_representation.getDate().getTime()+tmp_representation.getDuree());
-                    if(
-                            // Comparaison du chevauchement au niveau de la date
-                            tmp_representation.getDate().compareTo(tmp_representation1.getDate()) == 0
-                            ||
-                            // Comparaison du chevauchement au niveau des heures début/fin
-                            endTime_tmp_spectacle.compareTo(tmp_representation1.getDate()) > 0
-                    )
-                    {
-                        prog_possible = false;
-                        break;
-                    }
-                }
-            }
-        }
-
-        return prog_possible;
-    }
-
-    /**
-     * Ajoute un spectacle à la liste des spectacles
-     * @param spectacle : spectacle à ajouter
-     * @throws ExceptionChevauchement : quand il y a un chevauchement de dates
-     */
-    public void ajouterSpectacle(Spectacle spectacle) throws ExceptionChevauchement
-    {
-        if(progPossible(spectacle))
-            spectacles.add(spectacle);
-        else
-            throw new ExceptionChevauchement();
-    }
-
-    /**
-     * Supprime un spectacle de la liste des spectacles
-     * @param spectacle : spectacle à supprimer
-     */
-    public void supprimerSpectacle(Spectacle spectacle)
-    {
-        for(Spectacle tmp_spectacle : spectacles)
-        {
-            if(spectacle.equals(tmp_spectacle))
-                spectacles.remove(spectacle);
-        }
     }
 }

@@ -12,7 +12,7 @@ import Modele.Theatre.Place;
  * @see Modele.Utilisateur.Respo_Programmation
  */
 
-public class Ticket
+public final class Ticket
 {
     /**
      * Représente le numéro de série du ticket concernant l'achat de place

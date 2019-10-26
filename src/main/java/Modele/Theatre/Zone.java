@@ -9,7 +9,7 @@ import java.util.ArrayList;
  * @see Categorie
  */
 
-public class Zone
+public final class Zone
 {
     /**
      * Représente la catégorie
@@ -20,6 +20,16 @@ public class Zone
      * Représente la liste des places de la zone
      */
     private ArrayList<Place> places;
+
+    /**
+     * Constructeur
+     * @param categorie : la catégorie de la zone
+     */
+    public Zone(Categorie categorie)
+    {
+        this.categorie = categorie;
+        this.places = new ArrayList<Place>();
+    }
 
     /**
      * Constructeur
@@ -48,5 +58,14 @@ public class Zone
     public ArrayList<Place> getPlaces()
     {
         return places;
+    }
+
+    /**
+     * Setter
+     * @param places : nouvelles liste de places
+     */
+    public void setPlaces(ArrayList<Place> places)
+    {
+        this.places = places;
     }
 }

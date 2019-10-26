@@ -5,6 +5,7 @@ import java.util.Date;
 
 import Modele.Statut;
 import Modele.Theatre.Place;
+import Modele.Theatre.Representation;
 
 /**
  * Représente le dossier d'achat de place(s)
@@ -14,7 +15,7 @@ import Modele.Theatre.Place;
  * @see Ticket
  */
 
-public class Achat
+public final class Achat
 {
     /**
      * Représente le numéro d'achat
@@ -42,13 +43,18 @@ public class Achat
     private ArrayList<Place> places;
 
     /**
+     * Représente la représentation à assister
+     */
+    private Representation representation;
+
+    /**
      * Constructeur
      * @param num_achat : numéro d'achat
      * @param date : date d'achat
      * @param reservation : éventuelle réservation effectuée au préalable
      * @param places : liste des places achetées
      */
-    public Achat(String num_achat, Date date, Reservation reservation, ArrayList<Place> places)
+    public Achat(String num_achat, Date date, Reservation reservation, ArrayList<Place> places, Representation representation)
     {
         this.num_achat = num_achat;
         this.date = date;
@@ -56,6 +62,7 @@ public class Achat
         this.statut = Statut.Valide_e;
         this.reservation = reservation;
         this.places = places;
+        this.representation = representation;
     }
 
     /**
@@ -110,5 +117,14 @@ public class Achat
     public ArrayList<Place> getPlaces()
     {
         return places;
+    }
+
+    /**
+     * Getter
+     * @return representation : la représentation à assister
+     */
+    public Representation getRepresentation()
+    {
+        return representation;
     }
 }

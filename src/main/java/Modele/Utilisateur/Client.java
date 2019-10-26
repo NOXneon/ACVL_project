@@ -9,7 +9,7 @@ import java.util.ArrayList;
  * Représente le client chez le théâtre
  */
 
-public class Client extends Utilisateur
+public final class Client extends Utilisateur
 {
     /**
      * Représente la liste de réservations effectuées

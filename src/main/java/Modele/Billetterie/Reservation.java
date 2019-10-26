@@ -5,6 +5,7 @@ import java.util.Date;
 
 import Modele.Statut;
 import Modele.Theatre.Place;
+import Modele.Theatre.Representation;
 
 /**
  * Représente la réservation de place(s)
@@ -14,7 +15,7 @@ import Modele.Theatre.Place;
  * @see Modele.Utilisateur.Respo_Programmation
  */
 
-public class Reservation
+public final class Reservation
 {
     /**
      * Représente le numéro de réservation
@@ -37,18 +38,25 @@ public class Reservation
     private ArrayList<Place> places;
 
     /**
+     * Représente la représentation à assister
+     */
+    private Representation representation;
+
+    /**
      * Constructeur
      * @param num_res : numéro de réservation
      * @param date : date de réservation
      * @param places : liste des places réservées
+     * @param representation : représentation à assister
      */
-    public Reservation(String num_res, Date date, ArrayList<Place> places)
+    public Reservation(String num_res, Date date, ArrayList<Place> places, Representation representation)
     {
         this.num_res = num_res;
         this.date = date;
         // Statut par défaut : Valide_e
         this.statut = Statut.Valide_e;
         this.places = places;
+        this.representation = representation;
     }
 
     /**
@@ -94,5 +102,14 @@ public class Reservation
     public ArrayList<Place> getPlaces()
     {
         return places;
+    }
+
+    /**
+     * Getter
+     * @return representation : la représentation à assister
+     */
+    public Representation getRepresentation()
+    {
+        return representation;
     }
 }

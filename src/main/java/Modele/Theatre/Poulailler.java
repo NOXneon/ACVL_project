@@ -18,7 +18,7 @@ public final class Poulailler extends Categorie
      *
      * @param tarif : tarif de la place dans la catégorie de zone
      */
-    public Poulailler(float tarif)
+    private Poulailler(float tarif)
     {
         super(tarif);
     }
