@@ -76,4 +76,18 @@ public final class Representation
     {
         this.statut = statut;
     }
+
+    /**
+     * Retourne un string contenant les valeurs des attributs de la représentation
+     * @return affiche : affiche de la représentation
+     */
+    public String getAffiche()
+    {
+        String affiche = "";
+
+        affiche += "Date : " + this.getDate() + "\n"
+                + "Duree : " +this.getDuree() + "\n"
+                + "Statut : " + this.getStatut() + "\n";
+        return affiche;
+    }
 }

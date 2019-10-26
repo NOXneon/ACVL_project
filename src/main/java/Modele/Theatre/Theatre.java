@@ -69,7 +69,7 @@ public final class Theatre
                             tmp_representation.getDate().compareTo(tmp_representation1.getDate()) == 0
                                     ||
                                     // Comparaison du chevauchement au niveau des heures début/fin
-                                    endTime_tmp_spectacle.compareTo(tmp_representation1.getDate()) > 0
+                                    endTime_tmp_spectacle.compareTo(tmp_representation1.getDate()) < 0
                     )
                     {
                         prog_possible = false;
@@ -121,11 +121,15 @@ public final class Theatre
      * Getter
      * @return spectacles : liste des spectacles programmés dans le théâtre
      */
-    public static ArrayList<Spectacle> getSpectacles()
+    public ArrayList<Spectacle> getSpectacles()
     {
         return spectacles;
     }
 
+    /**
+     * Retourne les spectacles ainsi que les affiches de leurs représentations
+     * @return
+     */
     public String planningSpectacles()
     {
         String planning="";
@@ -133,6 +137,7 @@ public final class Theatre
         for(int i=0; i<spectacles.size(); i++)
         {
             planning += spectacles.get(i).getNom() + "\n";
+            planning += spectacles.get(i).getAffiches() + "\n";
         }
 
         return planning;

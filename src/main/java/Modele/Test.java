@@ -10,6 +10,7 @@ import Modele.Utilisateur.Respo_Programmation;
 import Modele.Utilisateur.Utilisateur;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
@@ -58,25 +59,35 @@ public class Test
         //------------------------- Fin attribution des places aux zones -------------------------
 
         //------------------------- Création des spectacles -------------------------
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(Calendar.YEAR, 2019);
+        calendar.set(Calendar.MONTH, 10);
+        calendar.set(Calendar.DAY_OF_MONTH, 26);
         //------ Spectacle 1 ------
         // Création des représentations
-        Representation representation1 = new Representation(new Date(), 90);
+        calendar.set(Calendar.HOUR, 17);
+        calendar.set(Calendar.MINUTE, 00);
+        Representation representation1 = new Representation(calendar.getTime(), 90);
         ArrayList<Representation> representations_spectacle1 = new ArrayList<Representation>();
         representations_spectacle1.add(representation1);
-        Spectacle spectacle1 = new Spectacle("Spectacle n°1","Spectacle Athab",representations_spectacle1);
+        Spectacle spectacle1 = new Spectacle("Spectacle n°1","Spectacle Athab", representations_spectacle1);
         //------ Fin spectacle 1 ------
         //------ Spectacle 2 ------
         // Création des représentations
-        Representation representation2 = new Representation(new Date(), 120);
+        calendar.set(Calendar.HOUR, 18);
+        calendar.set(Calendar.MINUTE, 31);
+        Representation representation2 = new Representation(calendar.getTime(), 120);
         ArrayList<Representation> representations_spectacle2 = new ArrayList<Representation>();
-        representations_spectacle1.add(representation2);
+        representations_spectacle2.add(representation2);
         Spectacle spectacle2 = new Spectacle("Spectacle n°2","Spectacle SwichSwichBish",representations_spectacle2);
         //------ Fin spectacle 2 ------
         //------ Spectacle 3 ------
         // Création des représentations
-        Representation representation3 = new Representation(new Date(), 90);
+        calendar.set(Calendar.HOUR, 20);
+        calendar.set(Calendar.MINUTE, 32);
+        Representation representation3 = new Representation(calendar.getTime(), 90);
         ArrayList<Representation> representations_spectacle3 = new ArrayList<Representation>();
-        representations_spectacle1.add(representation3);
+        representations_spectacle3.add(representation3);
         Spectacle spectacle3 = new Spectacle("Spectacle n°3","Spectacle neon",representations_spectacle3);
         //------ Fin spectacle 3 ------
         //------------------------- Fin création des spectacles -------------------------
@@ -100,5 +111,7 @@ public class Test
         //------------------------- Fin création des utilisateurs -------------------------
 
         System.out.println(theatre.planningSpectacles());
+
+
     }
 }

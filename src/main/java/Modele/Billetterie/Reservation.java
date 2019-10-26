@@ -18,6 +18,10 @@ import Modele.Theatre.Representation;
 public final class Reservation
 {
     /**
+     * Représente le compteur pour la création du num_res
+     */
+    private int cpt=1;
+    /**
      * Représente le numéro de réservation
      */
     private String num_res;
@@ -44,14 +48,13 @@ public final class Reservation
 
     /**
      * Constructeur
-     * @param num_res : numéro de réservation
      * @param date : date de réservation
      * @param places : liste des places réservées
      * @param representation : représentation à assister
      */
-    public Reservation(String num_res, Date date, ArrayList<Place> places, Representation representation)
+    public Reservation(Date date, ArrayList<Place> places, Representation representation)
     {
-        this.num_res = num_res;
+        this.num_res = "Res n°"+cpt; cpt++;
         this.date = date;
         // Statut par défaut : Valide_e
         this.statut = Statut.Valide_e;

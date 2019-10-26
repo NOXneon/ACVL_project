@@ -123,4 +123,20 @@ public final class Spectacle
                 representations.remove(representation);
         }
     }
+
+    /**
+     * Retourne l'affiche des représentations du spectacle
+     * @return
+     */
+    public String getAffiches()
+    {
+        String affiches = "";
+
+        for(int i=0; i<representations.size(); i++)
+            affiches += representations.get(i).getAffiche();
+
+        affiches += "\n";
+
+        return affiches;
+    }
 }
