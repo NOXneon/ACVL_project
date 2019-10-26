@@ -9,37 +9,33 @@
 <title>Théâtre SAW - Inscription</title>
 </head>
 <body onLoad="loadData()">
-<div class="header">
+	<div class="header">
 		<h1>Théâtre SAW</h1>
 	</div>
 	<h2>Inscription</h2>
 
-	<div class = "form">
-	<form action="RegisterServlet" method="post" id = "registerForm">
+	<div class="form">
+		<form action="register" method="post" id="registerForm">
+			<input type="hidden" id="clientsList" name="clientsList" value="non" />
+			<input type="hidden" id="addingClient" value="${addingClientMessage}" />
+			<div class="container">
+				<label><b>Nom</b></label> <input type="text" id="nom" name="nom"
+					required> <label><b>Prénom</b></label> <input type="text"
+					id="prénom" name="prénom" required> <label><b>Nom
+						d'utilisateur</b></label> <input type="text" id="login" name="login" required>
+				<label><b>Mot de passe</b></label> <input type="password" id="mdp"
+					name="mdp" required> <label><b>Adresse mail</b></label> <input
+					type="text" id="mail" name="mail" required> <label><b>Téléphone</b></label>
+				<input type="text" id="tel" name="tel" required>
 
-		<div class="container">
-			<label><b>Nom</b></label> 
-			<input type="text" id="name" name="name" required> 
-			<label ><b>Prénom</b></label> 
-			<input	type="text" id="surname" name="surname" required>
-			<label ><b>Nom d'utilisateur</b></label>
-			<input type="text" id="uname" name="uname" required>
-			<label ><b>Mot de passe</b></label>
-			<input type="password" id="psw" name="psw" required>
-			<label ><b>Adresse mail</b></label>
-			<input type="text" id="mail" name="mail" required>
-			<label ><b>Téléphone</b></label>
-			<input type="text" id="number" name="number" required>
+				<button onClick="signUp()">S'inscrire</button>
+			</div>
 
-			<button onClick="signUp()">S'inscrire</button>
-		</div>
+			<div class="container" style="background-color: #f1f1f1">
+				<button type="button" class="cancelbtn" onClick="Connexion()">Connexion</button>
+			</div>
 
-		<div class="container" style="background-color: #f1f1f1">
-			<button type="button" class="cancelbtn" onClick="Connexion()">Connexion</button>
-		</div>
-	</form>
+		</form>
 	</div>
-	<input type="text" id = "clientsList" name = "clientsList" style="display:hidden;"/>
-	<input type="text" id = "addingClient" value = "${addingClientMessage}"/>
 </body>
 </html>
