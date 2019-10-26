@@ -72,5 +72,5 @@ function allowLogin(isAllowed) {
 }
 
 function Inscription() {
-	window.location="/Theater/register.jsp";
+	window.location="/Theater/register";
 }

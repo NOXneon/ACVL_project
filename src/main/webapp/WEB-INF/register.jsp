@@ -8,7 +8,7 @@
 <link rel="stylesheet" type="text/css" href="ressources/style.css">
 <title>Théâtre SAW - Inscription</title>
 </head>
-<body>
+<body onLoad="loadData()">
 <div class="header">
 		<h1>Théâtre SAW</h1>
 	</div>
@@ -39,5 +39,7 @@
 		</div>
 	</form>
 	</div>
+	<input type="text" id = "clientsList" name = "clientsList" style="display:hidden;"/>
+	<input type="text" id = "addingClient" value = "${addingClientMessage}"/>
 </body>
 </html>
