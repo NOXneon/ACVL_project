@@ -73,4 +73,33 @@ public final class Place
     {
         this.etat = etat;
     }
+
+    /**
+     * Retourne un descriptif de la place
+     * @return desc : descriptif de la place
+     */
+    public String descriptif()
+    {
+        String desc = "";
+
+        desc += "Num rang : " + this.getNum_rang() + "\n"
+                + "Num place : " + this.getNum_place() + "\n"
+                + "Etat : " + this.getEtat() + "\n";
+
+        return desc = "";
+    }
+
+    /**
+     *  Compare deux places ; Si les attributs sont les mêmes, alors les places sont les mêmes
+     * @param place : seconde place
+     * @return
+     */
+    public boolean equals(Place place)
+    {
+        return this.getNum_rang() == place.getNum_rang()
+                &&
+                this.getNum_place() == place.getNum_place()
+                &&
+                this.getEtat() == place.getEtat();
+    }
 }

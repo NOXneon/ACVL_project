@@ -115,4 +115,26 @@ public final class Reservation
     {
         return representation;
     }
+
+    /**
+     * Représente un récapitulatif de la réservation
+     * @return recap : récépitulatif de la réservation
+     */
+    public String recap()
+    {
+        String recap = "";
+        String places = "";
+
+        for(Place place : this.getPlaces())
+        {
+            places+= place.descriptif();
+        }
+
+
+        recap += "Date : " + this.getDate() + "\n"
+                + "Places : " + places + "\n"
+                + "Representation : " + this.getRepresentation().getAffiche() + "\n\n";
+
+        return recap;
+    }
 }

@@ -1,5 +1,6 @@
 package Modele;
 
+import Modele.Billetterie.Reservation;
 import Modele.Theatre.Place;
 import Modele.Theatre.Representation;
 import Modele.Theatre.Spectacle;
@@ -112,6 +113,27 @@ public class Test
 
         System.out.println(theatre.planningSpectacles());
 
+        try
+        {
+            Reservation reservation = ((Client) client).reserverPlace(representation1, Theatre.getSalle().getZone_Balcon(), place11);
+            System.out.println(reservation.recap());
+        }
+        catch (ExceptionRepresentationInconnue exceptionRepresentationInconnue)
+        {
+            exceptionRepresentationInconnue.printStackTrace();
+        }
+        catch (ExceptionZoneInconnue exceptionZoneInconnue)
+        {
+            exceptionZoneInconnue.printStackTrace();
+        }
+        catch (ExceptionPlaceInexistante exceptionPlaceInexistante)
+        {
+            exceptionPlaceInexistante.printStackTrace();
+        }
+        catch (ExceptionPlaceReservee exceptionPlaceReservee)
+        {
+            exceptionPlaceReservee.printStackTrace();
+        }
 
     }
 }

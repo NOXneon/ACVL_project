@@ -2,17 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e75716be-705d-4551-98c3-bc3703e4d277" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/Modele/ExceptionPlaceInexistante.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Modele/ExceptionPlaceReservee.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Modele/ExceptionRepresentationInconnue.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Modele/ExceptionZoneInconnue.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Modele/Billetterie/Reservation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Modele/Billetterie/Reservation.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Modele/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Modele/Test.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Modele/Theatre/Representation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Modele/Theatre/Representation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Modele/Theatre/Spectacle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Modele/Theatre/Spectacle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Modele/Theatre/Theatre.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Modele/Theatre/Theatre.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Modele/Theatre/Place.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Modele/Theatre/Place.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Modele/Utilisateur/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Modele/Utilisateur/Client.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -118,7 +111,7 @@
       <workItem from="1572031459698" duration="6348000" />
       <workItem from="1572053578755" duration="97000" />
       <workItem from="1572053717376" duration="4937000" />
-      <workItem from="1572088693656" duration="3761000" />
+      <workItem from="1572088693656" duration="5962000" />
     </task>
     <servers />
   </component>
@@ -137,6 +130,17 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/Modele/Test.java</url>
+          <line>117</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="masterDetails">
     <states>

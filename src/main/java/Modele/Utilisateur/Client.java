@@ -80,6 +80,7 @@ public final class Client extends Utilisateur
         else
         {
             // Vérification que la représentation existe
+            outerloop:
             for(Spectacle tmp_spectacle : Theatre.getTHEATRE().getSpectacles())
             {
                 for(Representation tmp_representation : tmp_spectacle.getRepresentations())
@@ -87,7 +88,7 @@ public final class Client extends Utilisateur
                     if(representation.equals(tmp_representation))
                     {
                         representation_existante = true;
-                        break;
+                        break outerloop;
                     }
                 }
             }
