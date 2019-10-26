@@ -71,7 +71,7 @@ public class Test
         Representation representation1 = new Representation(calendar.getTime(), 90);
         ArrayList<Representation> representations_spectacle1 = new ArrayList<Representation>();
         representations_spectacle1.add(representation1);
-        Spectacle spectacle1 = new Spectacle("Spectacle n°1","Spectacle Athab", representations_spectacle1);
+        Spectacle spectacle1 = new Spectacle("Spectacle Athab", representations_spectacle1);
         //------ Fin spectacle 1 ------
         //------ Spectacle 2 ------
         // Création des représentations
@@ -80,7 +80,7 @@ public class Test
         Representation representation2 = new Representation(calendar.getTime(), 120);
         ArrayList<Representation> representations_spectacle2 = new ArrayList<Representation>();
         representations_spectacle2.add(representation2);
-        Spectacle spectacle2 = new Spectacle("Spectacle n°2","Spectacle SwichSwichBish",representations_spectacle2);
+        Spectacle spectacle2 = new Spectacle("Spectacle SwichSwichBish",representations_spectacle2);
         //------ Fin spectacle 2 ------
         //------ Spectacle 3 ------
         // Création des représentations
@@ -89,7 +89,7 @@ public class Test
         Representation representation3 = new Representation(calendar.getTime(), 90);
         ArrayList<Representation> representations_spectacle3 = new ArrayList<Representation>();
         representations_spectacle3.add(representation3);
-        Spectacle spectacle3 = new Spectacle("Spectacle n°3","Spectacle neon",representations_spectacle3);
+        Spectacle spectacle3 = new Spectacle("Spectacle neon",representations_spectacle3);
         //------ Fin spectacle 3 ------
         //------------------------- Fin création des spectacles -------------------------
 
@@ -115,8 +115,21 @@ public class Test
 
         try
         {
+            System.out.println("Réservation : ");
             Reservation reservation = ((Client) client).reserverPlace(representation1, Theatre.getSalle().getZone_Balcon(), place11);
+            System.out.println("Récap");
             System.out.println(reservation.recap());
+            System.out.println("Fin récap");
+
+            System.out.println("Liste des réservations du client");
+            System.out.println(((Client) client).listerReservations());
+            // Test de réservation d'une place déjà réservée
+            //Reservation reservation1 = ((Client) client).reserverPlace(representation1, Theatre.getSalle().getZone_Balcon(), place11);
+            System.out.println("Annulation de la réservation");
+            ((Client) client).annulerReservation(reservation);
+            System.out.println("Liste des réservations du client");
+            System.out.println(((Client) client).listerReservations());
+
         }
         catch (ExceptionRepresentationInconnue exceptionRepresentationInconnue)
         {

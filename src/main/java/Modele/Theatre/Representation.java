@@ -90,4 +90,19 @@ public final class Representation
                 + "Statut : " + this.getStatut() + "\n";
         return affiche;
     }
+
+    /**
+     * Vérifie si deux représentations sont les mêmes
+     * @param obj : deuxième représentation
+     * @return vrai si les différents attributs sont égaux
+     */
+    @Override
+    public boolean equals(Object obj)
+    {
+        Representation representation = (Representation) obj;
+
+        return this.getDate() == representation.getDate()
+                && this.getDuree() == representation.getDuree()
+                && this.getStatut() == representation.getStatut();
+    }
 }

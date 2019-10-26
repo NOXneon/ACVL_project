@@ -3,9 +3,14 @@
   <component name="ChangeListManager">
     <list default="true" id="e75716be-705d-4551-98c3-bc3703e4d277" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Modele/Billetterie/Achat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Modele/Billetterie/Achat.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Modele/Billetterie/Billetterie.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Modele/Billetterie/Billetterie.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Modele/Billetterie/Reservation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Modele/Billetterie/Reservation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Modele/Billetterie/Ticket.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Modele/Billetterie/Ticket.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Modele/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Modele/Test.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Modele/Theatre/Place.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Modele/Theatre/Place.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Modele/Theatre/Representation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Modele/Theatre/Representation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Modele/Theatre/Spectacle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Modele/Theatre/Spectacle.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Modele/Utilisateur/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Modele/Utilisateur/Client.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -14,11 +19,26 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
+  </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Enum" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -54,10 +74,17 @@
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
+  <component name="RecentsManager">
+    <key name="ExtractSuperBase.RECENT_KEYS">
+      <recent name="Modele.Theatre" />
+    </key>
+  </component>
   <component name="RunAnythingCache">
     <option name="myCommands">
-      <command value="mvn site" />
       <command value="mvn clean" />
+      <command value="mvn site" />
+      <command value="tomcat7:run -X" />
+      <command value="mvn tomcat7:run -X" />
     </option>
   </component>
   <component name="RunDashboard">
@@ -111,7 +138,7 @@
       <workItem from="1572031459698" duration="6348000" />
       <workItem from="1572053578755" duration="97000" />
       <workItem from="1572053717376" duration="4937000" />
-      <workItem from="1572088693656" duration="5962000" />
+      <workItem from="1572088693656" duration="17883000" />
     </task>
     <servers />
   </component>
@@ -130,17 +157,6 @@
         </entry>
       </map>
     </option>
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Modele/Test.java</url>
-          <line>117</line>
-          <option name="timeStamp" value="5" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
   <component name="masterDetails">
     <states>

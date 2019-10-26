@@ -86,16 +86,19 @@ public final class Place
                 + "Num place : " + this.getNum_place() + "\n"
                 + "Etat : " + this.getEtat() + "\n";
 
-        return desc = "";
+        return desc;
     }
 
     /**
      *  Compare deux places ; Si les attributs sont les mêmes, alors les places sont les mêmes
-     * @param place : seconde place
-     * @return
+     * @param obj : seconde place
+     * @return vrai si les différents attributs sont égaux
      */
-    public boolean equals(Place place)
+    @Override
+    public boolean equals(Object obj)
     {
+        Place place = (Place) obj;
+
         return this.getNum_rang() == place.getNum_rang()
                 &&
                 this.getNum_place() == place.getNum_place()
