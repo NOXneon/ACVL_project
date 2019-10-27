@@ -15,6 +15,7 @@ function loadData() {
 	//eventually adding show
 	if (document.getElementById("addingShow").value == "The show already exists") {
 		alert("Le spectacle existe déjà");
+		window.location="/Theater/home?user="+document.getElementById("userType").value;
 	} else if (document.getElementById("addingShow").value == "The show can be added"){
 		var spectacles = JSON.parse(localStorage.getItem('spectacles'));
 		document.getElementById("addingShow").value = "";
@@ -26,13 +27,12 @@ function loadData() {
 	//eventually adding rep
 	if (document.getElementById("addingRep").value == "The rep does not fit") {
 		alert("La représentation chevauche une autre");
+		window.location="/Theater/home?user="+document.getElementById("userType").value;
 	} else if (document.getElementById("addingRep").value == "The rep can be added"){
 		var spectacles = JSON.parse(localStorage.getItem('spectacles'));
 		document.getElementById("addingRep").value = "";
 		var representation = document.getElementById("repToAddPostMessage").value;
-		alert("REP "+representation);
 		var repShow = document.getElementById("repShow").value;
-		alert("SHOW "+repShow);
 		for (var i in spectacles) {
 			if (spectacles[i].nom == repShow) {
 				spectacles[i].representations.push(JSON.parse(representation));
