@@ -3,6 +3,6 @@ package Exceptions;
 public class ExceptionSpectacleExistant extends Exception {
 	    public ExceptionSpectacleExistant()
 	    {
-	        super("Spectacle deja existant ; Veuillez vérifier vos informations.");
+	        super("Spectacle déjà existant ; Veuillez vérifier vos informations.");
 	    }
 }

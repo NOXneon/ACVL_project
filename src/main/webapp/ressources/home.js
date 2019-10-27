@@ -26,7 +26,7 @@ function loadData() {
 	
 	//eventually adding rep
 	if (document.getElementById("addingRep").value == "The rep does not fit") {
-		alert("La représentation chevauche une autre");
+		alert("La représentation chevauche une autre/Le spectacle n'existe pas");
 		window.location="/Theater/home?user="+document.getElementById("userType").value;
 	} else if (document.getElementById("addingRep").value == "The rep can be added"){
 		var spectacles = JSON.parse(localStorage.getItem('spectacles'));
@@ -227,7 +227,6 @@ function delShow(idTable) {
 	var spectacles = JSON.parse(localStorage.getItem('spectacles'));
 	var table = document.getElementById(idTable);
 	for (var i = table.rows.length-1; i > 0; i--) {
-		console.log(table.rows.length);
 		if (table.rows[i].cells[0].firstChild.checked) {
 			delete spectacles[i-1];
 		}
@@ -236,6 +235,34 @@ function delShow(idTable) {
 	localStorage.setItem('spectacles', JSON.stringify(spectacles));
 	location.reload();
 }
+
+function delRep(idTable) {
+	var spectacles = JSON.parse(localStorage.getItem('spectacles'));
+	var table = document.getElementById(idTable);
+	for (var i = table.rows.length-1; i > 0; i--) {
+		if (table.rows[i].cells[0].firstChild.checked) {
+			var spectacle = table.rows[i].cells[1].innerHTML;
+			for (var j in spectacles) {
+				if (spectacles[j].nom == spectacle) {
+					var representationDate = table.rows[i].cells[2].innerHTML;
+					var representations = spectacles[j].representations;
+					for (var k in representations) {
+						if (representations[k].date == representationDate) {
+							delete representations[k];
+							table.deleteRow(i);
+						}
+					}
+					spectacles[j].representations = spectacles[j].representations.filter(el => el != null);
+				}
+			}
+		}
+		
+	}
+	spectacles = spectacles.filter(el => el != null);
+	localStorage.setItem('spectacles', JSON.stringify(spectacles));
+	location.reload();
+}
+
 function delClient(idTable) {
 	var users = JSON.parse(localStorage.getItem('users'));
 	var table = document.getElementById(idTable);
