@@ -13,6 +13,9 @@ import Modele.Theatre.*;
 import java.util.ArrayList;
 import java.util.Date;
 
+import com.alibaba.fastjson.annotation.JSONCreator;
+import com.alibaba.fastjson.annotation.JSONField;
+
 /**
  * Représente le client chez le théâtre
  */
@@ -38,7 +41,8 @@ public final class Client extends Utilisateur
      * @param mail   : adresse mail de l'Utilisateur
      * @param tel    : numéro de téléphone de l'Utilisateur
      */
-    public Client(String nom, String prenom, String login, String mdp, String mail, String tel)
+    @JSONCreator
+    public Client(@JSONField(name="nom") String nom,@JSONField(name="prenom") String prenom,@JSONField(name="login") String login,@JSONField(name="mdp") String mdp,@JSONField(name="mail") String mail,@JSONField(name="tel") String tel)
     {
         super(nom, prenom, login, mdp, mail, tel);
         this.reservations = new ArrayList<Reservation>();
@@ -230,4 +234,12 @@ public final class Client extends Utilisateur
 
         return liste;
     }
+
+	@Override
+	public String toString() {
+		String original = super.toString();
+		original = original.substring(0,original.length()-1);
+		return original+" ,\"reservations\": \"" + reservations + "\", \"achats\": \"" + achats + "\"}";
+	}
+    
 }

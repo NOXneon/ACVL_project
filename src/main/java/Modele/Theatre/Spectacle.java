@@ -5,6 +5,9 @@ import Exceptions.ExceptionChevauchement;
 import java.util.ArrayList;
 import java.util.Date;
 
+import com.alibaba.fastjson.annotation.JSONCreator;
+import com.alibaba.fastjson.annotation.JSONField;
+
 /**
  * Représente un spectacle mis en scène par le biai de différentes représentations
  *
@@ -38,7 +41,8 @@ public final class Spectacle
      * @param nom : nom du spectacle
      * @param representations : liste des représentations
      */
-    public Spectacle(String nom, ArrayList<Representation> representations)
+    @JSONCreator
+    public Spectacle(@JSONField(name="nom") String nom,@JSONField(name="representations") ArrayList<Representation> representations)
     {
         this.numero = "SPC n°"+cpt; cpt++;
         this.nom = nom;
@@ -151,4 +155,10 @@ public final class Spectacle
 
         return this.getNumero() == spectacle.getNumero();
     }
+
+	@Override
+	public String toString() {
+		return "{\"nom\": \"" + nom + "\", \"representations: \"" + representations + "\"}";
+	}
+    
 }
