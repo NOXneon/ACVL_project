@@ -76,7 +76,7 @@ public class ShowServlet extends HttpServlet {
 					}
 				}
 
-			} catch (ExceptionChevauchement f) {
+			} catch (Exception f) {
 
 				request.setAttribute("addingRepMessage", "The rep does not fit");
 			}

@@ -26,7 +26,7 @@ function loadData() {
 	
 	//eventually adding rep
 	if (document.getElementById("addingRep").value == "The rep does not fit") {
-		alert("La représentation chevauche une autre");
+		alert("La représentation chevauche une autre/Le spectacle n'existe pas");
 		window.location="/Theater/home?user="+document.getElementById("userType").value;
 	} else if (document.getElementById("addingRep").value == "The rep can be added"){
 		var spectacles = JSON.parse(localStorage.getItem('spectacles'));
