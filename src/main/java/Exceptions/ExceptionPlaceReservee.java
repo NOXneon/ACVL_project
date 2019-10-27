@@ -1,4 +1,4 @@
-package Modele;
+package Exceptions;
 
 /**
  * Représente l'exception quand on essaye de réserver une place déjà réservée

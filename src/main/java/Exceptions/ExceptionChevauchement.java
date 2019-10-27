@@ -1,4 +1,4 @@
-package Modele;
+package Exceptions;
 
 /**
  * Représente l'exception lors d'une programmation contenant un chevauchement entre représentations

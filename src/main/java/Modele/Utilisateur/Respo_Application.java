@@ -2,8 +2,8 @@ package Modele.Utilisateur;
 
 import Modele.Billetterie.Billetterie;
 import Modele.Billetterie.Reservation;
-import Modele.Etat;
-import Modele.Statut;
+import Enums.Etat;
+import Enums.Statut;
 import Modele.Theatre.Place;
 
 /**

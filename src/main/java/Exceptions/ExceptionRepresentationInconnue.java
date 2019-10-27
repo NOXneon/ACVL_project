@@ -1,4 +1,4 @@
-package Modele;
+package Exceptions;
 
 /**
  * Représente l'exception qu'on on sollicite une représentation non existante

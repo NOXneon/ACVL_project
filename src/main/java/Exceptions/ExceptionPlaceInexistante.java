@@ -1,4 +1,4 @@
-package Modele;
+package Exceptions;
 
 /**
  * Représente l'exception lors d'une recherche d'une place inexistante

@@ -1,8 +1,7 @@
 package Modele.Utilisateur;
 
-import Modele.ExceptionChevauchement;
+import Exceptions.ExceptionChevauchement;
 import Modele.Theatre.Representation;
-import Modele.Theatre.Salle;
 import Modele.Theatre.Spectacle;
 import Modele.Theatre.Theatre;
 

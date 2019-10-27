@@ -1,5 +1,6 @@
 package Modele;
 
+import Exceptions.*;
 import Modele.Billetterie.Reservation;
 import Modele.Theatre.Place;
 import Modele.Theatre.Representation;
@@ -9,11 +10,8 @@ import Modele.Utilisateur.Client;
 import Modele.Utilisateur.Respo_Application;
 import Modele.Utilisateur.Respo_Programmation;
 import Modele.Utilisateur.Utilisateur;
-
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
-import java.util.concurrent.TimeUnit;
 
 public class Test
 {

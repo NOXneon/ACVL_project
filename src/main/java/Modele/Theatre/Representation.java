@@ -2,7 +2,7 @@ package Modele.Theatre;
 
 import java.util.Date;
 
-import Modele.Statut;
+import Enums.Statut;
 
 /**
  * Représente une séance d'un spectacle se déroulant dans le théâtre

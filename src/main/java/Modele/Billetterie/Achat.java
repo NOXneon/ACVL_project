@@ -3,7 +3,7 @@ package Modele.Billetterie;
 import java.util.ArrayList;
 import java.util.Date;
 
-import Modele.Statut;
+import Enums.Statut;
 import Modele.Theatre.Place;
 import Modele.Theatre.Representation;
 
