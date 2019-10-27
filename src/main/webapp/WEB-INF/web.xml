@@ -12,6 +12,10 @@
   	<servlet-name>Register</servlet-name>
   	<servlet-class>Controleur.RegisterServlet</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>Home</servlet-name>
+  	<servlet-class>Controleur.HomeServlet</servlet-class>
+  </servlet>
   
   
   <servlet-mapping>
@@ -22,6 +26,11 @@
    <servlet-mapping>
   	<servlet-name>Register</servlet-name>
   	<url-pattern>/register</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+  	<servlet-name>Home</servlet-name>
+  	<url-pattern>/home</url-pattern>
   </servlet-mapping>
   
   

@@ -6,7 +6,13 @@ package Modele.Utilisateur;
 
 public abstract class Utilisateur
 {
-    /**
+    @Override
+	public String toString() {
+		return "{\"nom\":\"" + nom + "\", \"prenom\":\"" + prenom + "\", \"login\":\"" + login + "\", \"mdp\":\"" + mdp + "\",\"mail\":\"" + mail
+				+ "\", \"tel\":\"" + tel+"\"}";
+	}
+
+	/**
      * Représente le nom de l'Utilisateur
      */
     private String nom;

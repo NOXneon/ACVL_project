@@ -1,6 +1,8 @@
 package Controleur;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -8,14 +10,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.ObjectMapper;
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONArray;
+import com.alibaba.fastjson.JSONObject;
 
 import Modele.Utilisateur.Client;
 
 public class RegisterServlet extends HttpServlet {
-
-	public List<Client> listeClients;
 
 	/**
 	 * 
@@ -32,12 +33,10 @@ public class RegisterServlet extends HttpServlet {
 			throws ServletException, IOException {
 		String users = request.getParameter("clientsList");
 		if (users != "") {
-			ObjectMapper mapper = new ObjectMapper();
-			listeClients = new ArrayList<Client>();
-			listeClients = mapper.readValue(users, new TypeReference<List<Client>>() {});
-
+			List<String> listeClients = JSONArray.parseArray(users, String.class);
+		
 			String name = request.getParameter("nom");
-			String surname = request.getParameter("prénom");
+			String surname = request.getParameter("prenom");
 			String username = request.getParameter("login");
 			String password = request.getParameter("mdp");
 			String mail = request.getParameter("mail");
@@ -45,8 +44,8 @@ public class RegisterServlet extends HttpServlet {
 
 			Client client = new Client(name, surname, username, password, mail, number);
 			boolean same = false;
-			for (Client c: listeClients) {
-				if (c.getLogin() == client.getLogin()) {
+			for (String c: listeClients) {
+				if (c.contains(client.getLogin())) {
 					same = true;
 				}
 			}
@@ -54,6 +53,7 @@ public class RegisterServlet extends HttpServlet {
 				request.setAttribute("addingClientMessage", "The client already exists");
 			} else {
 				request.setAttribute("addingClientMessage", "The client can be added");
+				request.setAttribute("clientToAdd", client.toString());
 			}
 		} else {
 			request.setAttribute("addingClientMessage", "The client can be added");
