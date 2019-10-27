@@ -11,10 +11,15 @@ import javax.servlet.http.HttpServletResponse;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 
+import Modele.ExceptionChevauchement;
+import Modele.ExceptionSpectacleExistant;
 import Modele.Theatre.Spectacle;
+import Modele.Theatre.Theatre;
 
 public class ShowServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+
+	private Theatre theatre;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -24,10 +29,20 @@ public class ShowServlet extends HttpServlet {
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		theatre = Theatre.getTHEATRE();
 		String shows = request.getParameter("showsList");
 		String showToAdd = request.getParameter("showsToAdd");
 		List<Spectacle> listeShows = JSONArray.parseArray(shows, Spectacle.class);
 		Spectacle newShow = JSON.parseObject(showToAdd, Spectacle.class);
+		try {
+			theatre.ajouterSpectacle(newShow);
+		} catch (ExceptionChevauchement e) {
+			e.printStackTrace();
+		} catch (ExceptionSpectacleExistant e) {
+			e.printStackTrace();
+			System.out.println("ERREUR");
+		}
+		System.out.println(theatre.getSpectacles().toString());
 		if (!listeShows.isEmpty()) {
 
 				boolean same = false;

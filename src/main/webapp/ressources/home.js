@@ -13,6 +13,7 @@ function loadData() {
 	//passer liste des spectacles au controleur
 	document.getElementById("showsList").value = localStorage.getItem('spectacles');
 	//eventually adding show
+	console.log(document.getElementById("addingShow").value);
 	if (document.getElementById("addingShow").value == "The show already exists") {
 		alert("Le spectacle existe déjà");
 	} else if (document.getElementById("addingShow").value == "The show can be added"){

@@ -98,7 +98,9 @@ public class Test
         {
             theatre.ajouterSpectacle(spectacle1);
             theatre.ajouterSpectacle(spectacle2);
-            theatre.ajouterSpectacle(spectacle3);
+			theatre.ajouterSpectacle(spectacle3);
+		} catch (ExceptionSpectacleExistant e) {
+				e.printStackTrace();
         } catch (ExceptionChevauchement exceptionChevauchement)
         {
             exceptionChevauchement.printStackTrace();
