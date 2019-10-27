@@ -13,6 +13,8 @@ import com.alibaba.fastjson.JSONArray;
 
 import Exceptions.ExceptionSpectacleExistant;
 import Exceptions.ExceptionChevauchement;
+import Exceptions.ExceptionChevauchement;
+import Exceptions.ExceptionSpectacleExistant;
 import Modele.Theatre.Representation;
 import Modele.Theatre.Spectacle;
 import Modele.Theatre.Theatre;

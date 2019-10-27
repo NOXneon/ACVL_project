@@ -2,27 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e75716be-705d-4551-98c3-bc3703e4d277" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Modele/Billetterie/Achat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Modele/Billetterie/Achat.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Modele/Billetterie/Billetterie.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Modele/Billetterie/Billetterie.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Modele/Billetterie/Reservation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Modele/Billetterie/Reservation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Modele/Billetterie/Ticket.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Modele/Billetterie/Ticket.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Modele/Etat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Enums/Etat.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Modele/ExceptionChevauchement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Exceptions/ExceptionChevauchement.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Modele/ExceptionPlaceInexistante.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Exceptions/ExceptionPlaceInexistante.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Modele/ExceptionPlaceReservee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Exceptions/ExceptionPlaceReservee.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Modele/ExceptionRepresentationInconnue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Exceptions/ExceptionRepresentationInconnue.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Modele/ExceptionZoneInconnue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Exceptions/ExceptionZoneInconnue.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Modele/Statut.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Enums/Statut.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controleur/ShowServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controleur/ShowServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Modele/ExceptionSpectacleExistant.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Exceptions/ExceptionSpectacleExistant.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Modele/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Modele/Test.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Modele/Theatre/Place.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Modele/Theatre/Place.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Modele/Theatre/Representation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Modele/Theatre/Representation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Modele/Theatre/Salle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Modele/Theatre/Salle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Modele/Theatre/Spectacle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Modele/Theatre/Spectacle.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Modele/Theatre/Theatre.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Modele/Theatre/Theatre.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Modele/Utilisateur/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Modele/Utilisateur/Client.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Modele/Utilisateur/Respo_Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Modele/Utilisateur/Respo_Application.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Modele/Utilisateur/Respo_Programmation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Modele/Utilisateur/Respo_Programmation.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -93,9 +77,9 @@
   </component>
   <component name="RunAnythingCache">
     <option name="myCommands">
-      <command value="mvn clean" />
       <command value="mvn site" />
       <command value="tomcat7:run -X" />
+      <command value="mvn clean" />
       <command value="mvn tomcat7:run -X" />
     </option>
   </component>
@@ -169,6 +153,17 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/Modele/Test.java</url>
+          <line>96</line>
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="masterDetails">
     <states>

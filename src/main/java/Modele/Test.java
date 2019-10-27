@@ -78,7 +78,7 @@ public class Test
         Representation representation2 = new Representation(calendar.getTime(), 120);
         ArrayList<Representation> representations_spectacle2 = new ArrayList<Representation>();
         representations_spectacle2.add(representation2);
-        Spectacle spectacle2 = new Spectacle("Spectacle SwichSwichBish",representations_spectacle2);
+        Spectacle spectacle2 = new Spectacle("Spectacle Athab",representations_spectacle2);
         //------ Fin spectacle 2 ------
         //------ Spectacle 3 ------
         // Création des représentations
