@@ -4,8 +4,8 @@ function loadData() {
 		var adminLogin = localStorage.getItem('adminLogin');
 		var respLogin = localStorage.getItem('respLogin');
 		var users = localStorage.getItem('users');
-		var adminTable = {'username' : 'admin', 'password' : 'root'};
-		var respTable = {'username' : 'respo', 'password' : 'THEresponsable'}
+		var adminTable = {'login' : 'admin', 'mdp' : 'root'};
+		var respTable = {'login' : 'respo', 'mdp' : 'THEresponsable'}
 		if (adminLogin == null) {
 			localStorage.setItem('adminLogin', JSON.stringify(adminTable));
 		}
@@ -26,17 +26,21 @@ function loadData() {
 
 function login() {
 	var allow;
-	var radiobtn = document.querySelector('input[type="radio"]:checked').value;
-	if (radiobtn == null) {
+	if (document.querySelector('input[type="radio"]:checked') == null) {
 		alert("Choisir mode de connexion");
+	} else if (document.getElementById('uname').value == "" 
+		|| document.getElementById('psw').value == "") {
+		alert("Saisir nom d'utilisateur et mot de passe");
 	} else {
+		var radiobtn = document.querySelector('input[type="radio"]:checked').value;
 		allow = false;
 		if (radiobtn == "utilisateur") {
 			var users = JSON.parse(localStorage.getItem('users'));
 			if (users != null) {
 				for (var user in users) {
-					if (users[user].username == document.getElementById('uname').value
-							&& users[user].password == document.getElementById('psw').value) {
+					var tmp = users[user];
+					if (tmp.login == document.getElementById('uname').value
+							&& tmp.mdp == document.getElementById('psw').value) {
 						//Allow login because user is found in db
 						allow = true;
 					}
@@ -49,12 +53,14 @@ function login() {
 				&& document.getElementById('psw').value == "THEresponsable") {
 				allow = true;
 			}
-		} else {
+		} else if(radiobtn == "admin") {
 			console.log('admin');
 			if (document.getElementById('uname').value == "admin" 
 				&& document.getElementById('psw').value == "root") {
 				allow = true;
 			}
+		} else {
+			alert("Se connecter en tant que?");
 		}
 		allowLogin(allow);
 	}
