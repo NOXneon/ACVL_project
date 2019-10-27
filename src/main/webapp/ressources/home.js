@@ -13,7 +13,6 @@ function loadData() {
 	//passer liste des spectacles au controleur
 	document.getElementById("showsList").value = localStorage.getItem('spectacles');
 	//eventually adding show
-	console.log(document.getElementById("addingShow").value);
 	if (document.getElementById("addingShow").value == "The show already exists") {
 		alert("Le spectacle existe déjà");
 	} else if (document.getElementById("addingShow").value == "The show can be added"){
@@ -21,7 +20,26 @@ function loadData() {
 		document.getElementById("addingShow").value = "";
 		spectacles.push(JSON.parse(document.getElementById("showToAddPostMessage").value));
 		localStorage.setItem('spectacles', JSON.stringify(spectacles));
-		window.location="/Theater/home?user="+document.getElementById("userTypeShow").value;
+		window.location="/Theater/home?user="+document.getElementById("userType").value;
+	}
+	
+	//eventually adding rep
+	if (document.getElementById("addingRep").value == "The rep does not fit") {
+		alert("La représentation chevauche une autre");
+	} else if (document.getElementById("addingRep").value == "The rep can be added"){
+		var spectacles = JSON.parse(localStorage.getItem('spectacles'));
+		document.getElementById("addingRep").value = "";
+		var representation = document.getElementById("repToAddPostMessage").value;
+		alert("REP "+representation);
+		var repShow = document.getElementById("repShow").value;
+		alert("SHOW "+repShow);
+		for (var i in spectacles) {
+			if (spectacles[i].nom == repShow) {
+				spectacles[i].representations.push(JSON.parse(representation));
+			}
+		}
+		localStorage.setItem('spectacles', JSON.stringify(spectacles));
+		window.location="/Theater/home?user="+document.getElementById("userType").value;
 	}
 	
 	var containers = document.querySelectorAll("div[class=container]");
@@ -102,9 +120,10 @@ function addRep(idTable) {
 
 //function to save a rep
 function saveRep(idTable) {
+	document.getElementById("toDo").value = "addRep";
 	var repToAdd;
 	var params = new URLSearchParams(location.search);
-	document.getElementById("userTypeRep").value = params.get('user');
+	document.getElementById("userType").value = params.get('user');
 	var table = document.getElementById(idTable);
 	if (table.rows[table.rows.length-1].cells[1].firstChild.value != undefined
 			&& table.rows[table.rows.length-1].cells[2].firstChild.value != undefined
@@ -112,17 +131,18 @@ function saveRep(idTable) {
 		repToAdd = {"date" : table.rows[table.rows.length-1].cells[2].firstChild.value,
 			"duree" : table.rows[table.rows.length-1].cells[3].firstChild.value};
 		document.getElementById("repShow").value = table.rows[table.rows.length-1].cells[1].firstChild.value;
-		
+		document.getElementById("repToAdd").value = JSON.stringify(repToAdd);
 	}
 	//send the list of shows to add
-	document.getElementById("repForm").submit();
+	document.getElementById("showForm").submit();
 }
 
 //function to save a show
 function saveShow(idTable) {
+	document.getElementById("toDo").value = "addShow";
 	var showToAdd;
 	var params = new URLSearchParams(location.search);
-	document.getElementById("userTypeShow").value = params.get('user');
+	document.getElementById("userType").value = params.get('user');
 	var table = document.getElementById(idTable);
 	if (table.rows[table.rows.length-1].cells[1].firstChild.value != undefined) {
 		showToAdd = {
@@ -171,9 +191,9 @@ function displayReps(idTable) {
 			var showName = row.insertCell(-1);
 			showName.innerHTML = spectacles[i].nom;
 			var repDate = row.insertCell(-1);
-			repDate.innerHTML = reps.date;
+			repDate.innerHTML = reps[j].date;
 			var repDuration = row.insertCell(-1);
-			repDuration.innerHTML = reps.duree;
+			repDuration.innerHTML = reps[j].duree;
 		}
 	}
 }

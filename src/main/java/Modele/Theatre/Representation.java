@@ -1,5 +1,7 @@
 package Modele.Theatre;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import com.alibaba.fastjson.annotation.JSONCreator;
@@ -37,15 +39,29 @@ public final class Representation
      * @param duree : durée de la représentation
      */
     @JSONCreator
-    public Representation(@JSONField(name="date") Date date, @JSONField(name="duree")long duree)
+    public Representation(@JSONField(name="date", format="dd/MM/yyyy HH:mm") String date, @JSONField(name="duree")long duree)
     {
-        this.date = date;
+    	SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm");
+        try {
+			this.date = sdf.parse(date);
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
         this.duree = duree;
         // Statut par défaut : Valide_e
         this.statut = Statut.Valide_e;
     }
 
-    /**
+    public Representation(Date time, int duree) {
+		this.date = time;
+		this.duree = duree;
+		 // Statut par défaut : Valide_e
+        this.statut = Statut.Valide_e;
+		
+	}
+
+	/**
      * Getter
      * @return date : date et heure de la représentation
      */

@@ -33,12 +33,13 @@
 </ul>
 
 <form method="post" action="home" id = "showForm">
-<input type="hidden" id="userTypeShow" name ="userTypeShow" value='${user}'/>
+<input type="hidden" id="userType" name ="userType" value='${user}'/>
+<input type="hidden" id="toDo" name="toDo" />
 <input type="hidden" id="showsList" name="showsList" />
 <input type="hidden" id="showsToAdd" name="showsToAdd" />
 <input type="hidden" id="addingShow" value="${addingShowMessage}" />
 <input type="hidden" id="showToAddPostMessage" value='${showToAddPostMessage}' />
-<input type="hidden" id="repShow" name="repShow" />
+<input type="hidden" id="repShow" name="repShow" value = '${repShow }'/>
 <input type="hidden" id="repToAdd" name="repToAdd" />
 <input type="hidden" id="addingRep" value="${addingRepMessage}" />
 <input type="hidden" id="repToAddPostMessage" value='${repToAddPostMessage}' />

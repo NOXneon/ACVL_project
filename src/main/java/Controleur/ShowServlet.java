@@ -13,13 +13,14 @@ import com.alibaba.fastjson.JSONArray;
 
 import Modele.ExceptionChevauchement;
 import Modele.ExceptionSpectacleExistant;
+import Modele.Theatre.Representation;
 import Modele.Theatre.Spectacle;
 import Modele.Theatre.Theatre;
 
 public class ShowServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	private Theatre theatre;
+	private Theatre theatre = Theatre.getTHEATRE();
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -29,39 +30,59 @@ public class ShowServlet extends HttpServlet {
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		theatre = Theatre.getTHEATRE();
-		String shows = request.getParameter("showsList");
-		String showToAdd = request.getParameter("showsToAdd");
-		List<Spectacle> listeShows = JSONArray.parseArray(shows, Spectacle.class);
-		Spectacle newShow = JSON.parseObject(showToAdd, Spectacle.class);
-		try {
-			theatre.ajouterSpectacle(newShow);
-		} catch (ExceptionChevauchement e) {
-			e.printStackTrace();
-		} catch (ExceptionSpectacleExistant e) {
-			e.printStackTrace();
-			System.out.println("ERREUR");
+		String user = request.getParameter("userType");
+		String toDo = request.getParameter("toDo");
+		if (theatre.getSpectacles().isEmpty()) {
+			String shows = request.getParameter("showsList");
+			List<Spectacle> listeShows = JSONArray.parseArray(shows, Spectacle.class);
+			for (Spectacle s: listeShows) {
+				try {
+					theatre.ajouterSpectacle(s);
+				} catch (ExceptionChevauchement e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (ExceptionSpectacleExistant e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
 		}
-		System.out.println(theatre.getSpectacles().toString());
-		if (!listeShows.isEmpty()) {
-
-				boolean same = false;
-				for (Spectacle s: listeShows) {
-					if (s.getNom() == newShow.getNom()) {
-						same = true;
+		if (toDo.equals("addShow")) {
+			
+			String showToAdd = request.getParameter("showsToAdd");
+			
+			Spectacle newShow = JSON.parseObject(showToAdd, Spectacle.class);
+			try {
+				theatre.ajouterSpectacle(newShow);
+			} catch (ExceptionChevauchement e) {
+				request.setAttribute("addingShowMessage", e.getMessage());
+			} catch (ExceptionSpectacleExistant e) {
+				request.setAttribute("addingShowMessage", e.getMessage());
+			}
+			
+		} else if (toDo.equals("addRep")) {
+			String repToAdd = request.getParameter("repToAdd");
+			String repShow = request.getParameter("repShow");
+			Representation newRep = JSON.parseObject(repToAdd, Representation.class);
+			try {
+				List<Spectacle> shows = theatre.getSpectacles();
+				for (Spectacle s : shows) {
+					if (s.getNom().equals(repShow)) {
+						theatre.getSpectacles().get(theatre.getSpectacles().indexOf(s)).ajouterRepresentation(newRep);
+						request.setAttribute("repToAddPostMessage", repToAdd);
+						request.setAttribute("repShow", repShow);
+						request.setAttribute("addingRepMessage", "The rep can be added");
+						System.out.println("NON"+theatre.getSpectacles());
 					}
 				}
-				if (same) {
-					request.setAttribute("addingShowMessage", "The show already exists");
-				} else {
-					request.setAttribute("addingShowMessage", "The show can be added");
-					request.setAttribute("showToAddPostMessage", showToAdd);
-				}
-		} else {
-			request.setAttribute("addingShowMessage", "The show can be added");
-			request.setAttribute("showToAddPostMessage", showToAdd);
+				
+			} catch (ExceptionChevauchement f) {
+				
+				request.setAttribute("addingRepMessage", "The rep does not fit");
+			}
 		}
-		request.setAttribute("user", request.getParameter("userTypeShow"));
+		
+		request.setAttribute("user", user);
 		this.doGet(request, response);
 	}
 }
