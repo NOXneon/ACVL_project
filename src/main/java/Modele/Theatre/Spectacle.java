@@ -88,13 +88,39 @@ public final class Spectacle
 
         for(Representation tmp_representation : representations)
         {
+            Date endTime_tmp_representation = new Date(tmp_representation.getDate().getTime()+tmp_representation.getDuree());
             if
             (
-                    // Comparaison du chevauchement au niveau de la date
-                    representation.getDate().getDay()==tmp_representation.getDate()
+                    // égales
+                    /*
+                    (
+                        representation.getDate().getDay()==tmp_representation.getDate().getDay()
+                        &&
+                        representation.getDate().getMonth()==tmp_representation.getDate().getMonth()
+                        &&
+                        representation.getDate().getYear()==tmp_representation.getDate().getYear()
+                        &&
+                        representation.getDate().getHours()==tmp_representation.getDate().getHours()
+                        &&
+                        representation.getDate().getMinutes()==tmp_representation.getDate().getMinutes()
+                    )
                     ||
-                    // Comparaison du chevauchement au niveau des heures début/fin
-                    endTime_spectacle.compareTo(tmp_representation.getDate()) < 0
+                    (
+                        representation.getDate().getDay()==tmp_representation.getDate().getDay()
+                        &&
+                        representation.getDate().getMonth()==tmp_representation.getDate().getMonth()
+                        &&
+                        representation.getDate().getYear()==tmp_representation.getDate().getYear()
+                        &&
+                        representation.getDate().getHours()==tmp_representation.getDate().getHours()
+                        &&
+                        representation.getDate().getMinutes()==tmp_representation.getDate()
+                    )
+                    */
+
+                    representation.getDate().compareTo(tmp_representation.getDate())==0
+                    ||
+                    (representation.getDate().before(endTime_tmp_representation) && representation.getDate().after(tmp_representation.getDate()))
             )
             {
                 prog_possible = false;
