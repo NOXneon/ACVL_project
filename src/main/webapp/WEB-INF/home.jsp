@@ -31,6 +31,15 @@
   <li><a href="#reps_client">Représentations</a></li>
   <li><a href="#" onClick="disconnect()">Déconnexion</a></li>
 </ul>
+
+
+<form method="post" action="home" id = "showForm">
+<input type="hidden" id="showsList" name="showsList" />
+<input type="hidden" id="showToAdd" name="showToAdd" />
+<input type="hidden" id="addingShow" value="${addingShowMessage}" />
+<input type="hidden" id=showsToAdd value='${showsToAdd}' />
+</form>		
+			
 <div class="container" style="background-color: #f1f1f1" id="showsAdmin">
 <h2>Liste des spectacles</h2>
 	<button type="button" class="cancelbtn" onClick="addShow('spectaclesTableAdmin')">Ajouter spectacle</button>

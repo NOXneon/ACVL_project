@@ -7,6 +7,7 @@ function connexion() {
 function loadData() {
 	//passer liste des clients au controleur
 	document.getElementById("clientsList").value = localStorage.getItem('users');
+	//eventually adding client
 	if (document.getElementById("addingClient").value == "The client already exists") {
 		alert("Le compte existe déjà");
 	} else if (document.getElementById("addingClient").value == "The client can be added"){
@@ -35,8 +36,6 @@ function signUp() {
 		alert("Saisir un mot de passe");
 	} else {
 		document.getElementById("registerForm").submit();
-		console.log(document.getElementById("addingClient").value);
-		
 	}
 }
 

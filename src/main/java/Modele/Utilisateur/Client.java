@@ -231,4 +231,12 @@ public final class Client extends Utilisateur
 
         return liste;
     }
+
+	@Override
+	public String toString() {
+		String original = super.toString();
+		original = original.substring(0,original.length()-1);
+		return original+" ,\"reservations\": \"" + reservations + "\", \"achats\": \"" + achats + "\"}";
+	}
+    
 }
