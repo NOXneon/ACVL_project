@@ -153,7 +153,7 @@ public final class Spectacle
     {
         Spectacle spectacle = (Spectacle) obj;
 
-        return this.getNom() == spectacle.getNom();
+        return this.getNom().equals(spectacle.getNom());
     }
 
 	@Override

@@ -32,36 +32,19 @@ public class ShowServlet extends HttpServlet {
 		theatre = Theatre.getTHEATRE();
 		String shows = request.getParameter("showsList");
 		String showToAdd = request.getParameter("showsToAdd");
-		List<Spectacle> listeShows = JSONArray.parseArray(shows, Spectacle.class);
+		//List<Spectacle> listeShows = JSONArray.parseArray(shows, Spectacle.class);
 		Spectacle newShow = JSON.parseObject(showToAdd, Spectacle.class);
-		try {
-			theatre.ajouterSpectacle(newShow);
-		} catch (ExceptionChevauchement e) {
-			e.printStackTrace();
-		} catch (ExceptionSpectacleExistant e) {
-			e.printStackTrace();
-			System.out.println("ERREUR");
-		}
-		System.out.println(theatre.getSpectacles().toString());
-		if (!listeShows.isEmpty()) {
+			try {
+				theatre.ajouterSpectacle(newShow);
+				request.setAttribute("addingShowMessage", "The show can be added");
+				request.setAttribute("showToAddPostMessage", showToAdd);
+				request.setAttribute("user", request.getParameter("userTypeShow"));
+			} catch (ExceptionChevauchement e) {
+				e.printStackTrace();
+			} catch (ExceptionSpectacleExistant e) {
+				request.setAttribute("addingShowMessage", "The show already exists");
+			}
 
-				boolean same = false;
-				for (Spectacle s: listeShows) {
-					if (s.getNom() == newShow.getNom()) {
-						same = true;
-					}
-				}
-				if (same) {
-					request.setAttribute("addingShowMessage", "The show already exists");
-				} else {
-					request.setAttribute("addingShowMessage", "The show can be added");
-					request.setAttribute("showToAddPostMessage", showToAdd);
-				}
-		} else {
-			request.setAttribute("addingShowMessage", "The show can be added");
-			request.setAttribute("showToAddPostMessage", showToAdd);
-		}
-		request.setAttribute("user", request.getParameter("userTypeShow"));
 		this.doGet(request, response);
 	}
 }

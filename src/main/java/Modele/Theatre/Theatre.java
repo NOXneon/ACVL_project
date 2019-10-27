@@ -89,11 +89,15 @@ public final class Theatre
      */
     public void ajouterSpectacle(Spectacle spectacle) throws ExceptionChevauchement, ExceptionSpectacleExistant
     {
+    	boolean existant = false;
         if(progPossible(spectacle)) {
-        	for (Spectacle s : spectacles) {
-        		if (spectacle.equals(s)) {
-        			throw new ExceptionSpectacleExistant();
+        	int i = 0;
+        		while (i < spectacles.size() && !existant) {
+        			existant = spectacle.getNom().equals(spectacles.get(i).getNom());
+        			i++;
         		}
+        		if (existant) {
+        			throw new ExceptionSpectacleExistant();
         	}
             spectacles.add(spectacle);
         }
