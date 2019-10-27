@@ -88,11 +88,10 @@ public final class Spectacle
 
         for(Representation tmp_representation : representations)
         {
-            Date endTime_spectacle = new Date(representation.getDate().getTime()+representation.getDuree());
             if
             (
                     // Comparaison du chevauchement au niveau de la date
-                    representation.getDate().compareTo(tmp_representation.getDate()) == 0
+                    representation.getDate().getDay()==tmp_representation.getDate()
                     ||
                     // Comparaison du chevauchement au niveau des heures début/fin
                     endTime_spectacle.compareTo(tmp_representation.getDate()) < 0
