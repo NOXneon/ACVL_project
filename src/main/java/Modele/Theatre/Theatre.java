@@ -1,6 +1,7 @@
 package Modele.Theatre;
 
 import Modele.ExceptionChevauchement;
+import Modele.ExceptionSpectacleExistant;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -86,10 +87,16 @@ public final class Theatre
      * @param spectacle : spectacle à ajouter
      * @throws ExceptionChevauchement : quand il y a un chevauchement de dates
      */
-    public void ajouterSpectacle(Spectacle spectacle) throws ExceptionChevauchement
+    public void ajouterSpectacle(Spectacle spectacle) throws ExceptionChevauchement, ExceptionSpectacleExistant
     {
-        if(progPossible(spectacle))
+        if(progPossible(spectacle)) {
+        	for (Spectacle s : spectacles) {
+        		if (spectacle.equals(s)) {
+        			throw new ExceptionSpectacleExistant();
+        		}
+        	}
             spectacles.add(spectacle);
+        }
         else
             throw new ExceptionChevauchement();
     }
