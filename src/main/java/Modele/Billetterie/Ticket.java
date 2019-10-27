@@ -1,7 +1,9 @@
 package Modele.Billetterie;
 
-import Modele.Statut;
+import Enums.Statut;
 import Modele.Theatre.Place;
+
+import java.util.Date;
 
 /**
  * Représente le ticket émis suite à un achat de place
@@ -27,7 +29,7 @@ public final class Ticket
     /**
      * Représente la date d'émission du ticket
      */
-    private String date;
+    private Date date;
 
     /**
      * Représente le statut du ticket
@@ -46,14 +48,13 @@ public final class Ticket
 
     /**
      * Constructeur
-     * @param date : date d'émission du ticket
      * @param achat : représente le dossier d'achat
      * @param place : représente la place achetée
      */
-    public Ticket(String date, Achat achat, Place place)
+    public Ticket(Achat achat, Place place)
     {
         this.num_serie = "TK n°"+cpt; cpt++;
-        this.date = date;
+        this.date = new Date();
         // Statut par défaut : Valide_e
         this.statut = Statut.Valide_e;
         this.achat = achat;
@@ -73,7 +74,7 @@ public final class Ticket
      * Getter
      * @return date : date d'émission du ticket
      */
-    public String getDate()
+    public Date getDate()
     {
         return date;
     }

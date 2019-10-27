@@ -11,8 +11,8 @@ import javax.servlet.http.HttpServletResponse;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 
-import Modele.ExceptionChevauchement;
-import Modele.ExceptionSpectacleExistant;
+import Exceptions.ExceptionSpectacleExistant;
+import Exceptions.ExceptionChevauchement;
 import Modele.Theatre.Representation;
 import Modele.Theatre.Spectacle;
 import Modele.Theatre.Theatre;
@@ -50,15 +50,17 @@ public class ShowServlet extends HttpServlet {
 		if (toDo.equals("addShow")) {
 			
 			String showToAdd = request.getParameter("showsToAdd");
-			
 			Spectacle newShow = JSON.parseObject(showToAdd, Spectacle.class);
-			try {
-				theatre.ajouterSpectacle(newShow);
-			} catch (ExceptionChevauchement e) {
-				request.setAttribute("addingShowMessage", e.getMessage());
-			} catch (ExceptionSpectacleExistant e) {
-				request.setAttribute("addingShowMessage", e.getMessage());
-			}
+				try {
+					theatre.ajouterSpectacle(newShow);
+					request.setAttribute("addingShowMessage", "The show can be added");
+					request.setAttribute("showToAddPostMessage", showToAdd);
+					request.setAttribute("user", request.getParameter("userTypeShow"));
+				} catch (ExceptionChevauchement e) {
+					e.printStackTrace();
+				} catch (ExceptionSpectacleExistant e) {
+					request.setAttribute("addingShowMessage", "The show already exists");
+				}
 			
 		} else if (toDo.equals("addRep")) {
 			String repToAdd = request.getParameter("repToAdd");

@@ -1,8 +1,8 @@
-package Modele;
+package Exceptions;
 
 public class ExceptionSpectacleExistant extends Exception {
 	    public ExceptionSpectacleExistant()
 	    {
-	        super("Représentation deja existante ; Veuillez vérifier vos informations.");
+	        super("Spectacle deja existant ; Veuillez vérifier vos informations.");
 	    }
 }

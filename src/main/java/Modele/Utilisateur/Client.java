@@ -1,9 +1,13 @@
 package Modele.Utilisateur;
 
-import Modele.*;
+import Exceptions.ExceptionPlaceInexistante;
+import Exceptions.ExceptionPlaceReservee;
+import Exceptions.ExceptionRepresentationInconnue;
+import Exceptions.ExceptionZoneInconnue;
 import Modele.Billetterie.Achat;
 import Modele.Billetterie.Billetterie;
 import Modele.Billetterie.Reservation;
+import Enums.Etat;
 import Modele.Theatre.*;
 
 import java.util.ArrayList;
@@ -30,7 +34,6 @@ public final class Client extends Utilisateur
 
     /**
      * Constructeur
-     *
      * @param nom    : nom de l'Utilisateur
      * @param prenom : prénom de l'Utilisateur
      * @param login  : login de l'Utilisateur
@@ -72,10 +75,10 @@ public final class Client extends Utilisateur
      */
     public Reservation reserverPlace(Representation representation, Zone zone, Place place)
             throws
-                ExceptionRepresentationInconnue,
-                ExceptionZoneInconnue,
-                ExceptionPlaceInexistante,
-                ExceptionPlaceReservee
+            ExceptionRepresentationInconnue,
+            ExceptionZoneInconnue,
+            ExceptionPlaceInexistante,
+            ExceptionPlaceReservee
     {
         Reservation reservation = null;
         boolean representation_existante = false;

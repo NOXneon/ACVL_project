@@ -1,4 +1,4 @@
-package Modele;
+package Exceptions;
 
 /**
  * Représente l'exception lors d'un choix de zone hors des 3 prédéfinies
