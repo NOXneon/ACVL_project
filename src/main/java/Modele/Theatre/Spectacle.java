@@ -95,7 +95,7 @@ public final class Spectacle
                     representation.getDate().compareTo(tmp_representation.getDate()) == 0
                     ||
                     // Comparaison du chevauchement au niveau des heures début/fin
-                    endTime_spectacle.compareTo(tmp_representation.getDate()) > 0
+                    endTime_spectacle.compareTo(tmp_representation.getDate()) < 0
             )
             {
                 prog_possible = false;

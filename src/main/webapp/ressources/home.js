@@ -100,7 +100,7 @@ function addShow(idTable) {
 
 //function to add a rep
 function addRep(idTable) {
-	document.getElementById("saveRepspectaclesTableRespo").disabled = true;
+	document.getElementById("saveRepspectaclesTableRespo").disabled = false;
 	var table = document.getElementById(idTable);
 	table.style.display = "block";
 	var row = table.insertRow(-1);
