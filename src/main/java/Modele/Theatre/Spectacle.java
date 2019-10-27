@@ -42,7 +42,7 @@ public final class Spectacle
      * @param representations : liste des représentations
      */
     @JSONCreator
-    public Spectacle(@JSONField(name="nom") String nom,@JSONField(deserialize=true, name="representations") ArrayList<Representation> representations)
+    public Spectacle(@JSONField(name="nom") String nom,@JSONField(name="representations") ArrayList<Representation> representations)
     {
         this.numero = "SPC n°"+cpt; cpt++;
         this.nom = nom;
