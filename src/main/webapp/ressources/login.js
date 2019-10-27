@@ -71,7 +71,11 @@ function allowLogin(isAllowed) {
 	if (isAllowed) {
 		// who is trying to log in
 		var who = document.querySelector('input[type="radio"]:checked').value;
-		window.location="/Theater/home?user="+who;
+		if (who == "utilisateur") {
+			window.location="/Theater/accueil?user="+who;
+		} else {
+			window.location="/Theater/home?user="+who;
+		}
 	} else {
 		alert("Mauvais nom d'utilisateur/Mot de passe");
 	}
