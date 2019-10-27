@@ -1,7 +1,6 @@
-// sets the username and password of the admin and resp prog
+
 function loadData() {
 	if (window.localStorage) {
-		//add reps and clients
 		var spectacles = localStorage.getItem('spectacles');
 		var spectaclesTable = [];
 		if (spectacles == null) {
@@ -53,8 +52,6 @@ function loadData() {
 	var params = new URLSearchParams(location.search);
 	if (params.get('user') == "admin") {
 		loadDataAdmin();
-	} else if (params.get('user') == 'utilisateur') {
-		loadDataUser();
 	} else if (params.get('user') == 'respProg'){
 		loadDataRespo();
 	}
@@ -62,18 +59,15 @@ function loadData() {
 function disconnect() {
 	window.location="/Theater";
 }
-function loadDataUser() {
-	document.getElementById("menuClient").style.display="block";
-	document.getElementById("showsClient").style.display="block";
-	document.getElementById("repsClient").style.display="block";
-	displayShows("spectaclesTableClient");
-	displayReps("repsTableClient");
-}
+
 function loadDataAdmin() {
 	document.getElementById("menuAdmin").style.display="block";
 	document.getElementById("showsAdmin").style.display="block";
 	document.getElementById("clientsAdmin").style.display="block";
 	document.getElementById("repsAdmin").style.display="block";
+	
+	document.getElementById("saveShowspectaclesTableAdmin").disabled = true;
+	
 	displayShows("spectaclesTableAdmin");
 	displayClients("clientsTableAdmin");
 	displayReps("repsTableAdmin");
@@ -86,6 +80,7 @@ function loadDataRespo() {
 	document.getElementById("repsRespo").style.display="block";
 	
 	document.getElementById("saveShowspectaclesTableRespo").disabled = true;
+	document.getElementById("saveRepspectaclesTableRespo").disabled = true;
 	
 	displayShows("spectaclesTableRespo");
 	displayClients("clientsTableRespo");
@@ -105,6 +100,7 @@ function addShow(idTable) {
 
 //function to add a rep
 function addRep(idTable) {
+	document.getElementById("saveRepspectaclesTableRespo").disabled = true;
 	var table = document.getElementById(idTable);
 	table.style.display = "block";
 	var row = table.insertRow(-1);
@@ -215,8 +211,12 @@ function displayClients(idTable) {
 	for (var i = 0; i < users.length; i++) {
 		var user = users[i];
 		var row = table.insertRow(-1);
-		var del = row.insertCell(-1);
-		del.innerHTML = '<input type = "checkbox">';
+		if (idTable == "clientsTableAdmin") {
+			var del = row.insertCell(-1);
+			del.innerHTML = '<input type = "checkbox">';
+		} else {
+			var del = row.insertCell(-1);
+		}
 		var name = row.insertCell(-1);
 		name.innerHTML = user.nom;
 		var surname = row.insertCell(-1);

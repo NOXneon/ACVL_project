@@ -26,11 +26,6 @@
   <li><a href="#stats">Statistiques</a></li>
   <li><a href="#" onClick="disconnect()">Déconnexion</a></li>
 </ul>
-<ul id = "menuClient">
-  <li><a href="#home_client">Spectacles</a></li>
-  <li><a href="#reps_client">Représentations</a></li>
-  <li><a href="#" onClick="disconnect()">Déconnexion</a></li>
-</ul>
 
 <form method="post" action="home" id = "showForm">
 <input type="hidden" id="userType" name ="userType" value='${user}'/>
@@ -49,7 +44,7 @@
 <h2>Liste des spectacles</h2>
 	<button type="button" class="cancelbtn" onClick="addShow('spectaclesTableAdmin')">Ajouter spectacle</button>
 	<button type="button" class="cancelbtn" onClick="delShow('spectaclesTableAdmin')">Supprimer spectacle</button>
-	<button type="button" class="cancelbtn" onClick="saveShow('spectaclesTableAdmin')">Sauvegarder spectacle</button>
+	<button type="button" class="cancelbtn" id = "saveShowspectaclesTableAdmin" onClick="saveShow('spectaclesTableAdmin')">Sauvegarder spectacle</button>
 	<table id = "spectaclesTableAdmin">
 		<th>
 			
@@ -59,6 +54,7 @@
 		</th>
 	</table>
 </div>
+
 <div class="container" style="background-color: #f1f1f1" id="showsRespo">
 <h2>Liste des spectacles</h2>
 	<button type="button" class="cancelbtn" onClick="addShow('spectaclesTableRespo')">Ajouter spectacle</button>
@@ -73,14 +69,7 @@
 		</th>
 	</table>
 </div>
-<div class="container" style="background-color: #f1f1f1" id="showsClient">
-<h2>Liste des spectacles</h2>
-	<table id = "spectaclesTableClient">
-		<th>
-			Nom du spectacle
-		</th>
-	</table>
-</div>
+
 <div class="container" style="background-color: #f1f1f1" id="clientsAdmin">
 <h2>Liste des clients</h2>
 <button type="button" class="cancelbtn" onClick="delClient('clientsTableAdmin')">Supprimer client</button>
@@ -105,6 +94,7 @@
 		</th>
 	</table>
 </div>
+
 <div class="container" style="background-color: #f1f1f1" id="clientsRespo">
 <h2>Liste des clients</h2>
 	<table id = "clientsTableRespo">
@@ -144,12 +134,11 @@
 	</table>
 </div>
 
-</form>	
 <div class="container" style="background-color: #f1f1f1" id="repsRespo">
 <h2>Liste des Représentations</h2>
 	<button type="button" class="cancelbtn" onClick="addRep('repsTableRespo')">Ajouter représentation</button>
 	<button type="button" class="cancelbtn" onClick="delRep('repsTableRespo')">Supprimer représentation</button>
-	<button type="button" class="cancelbtn" onClick="saveRep('repsTableRespo')">Sauvegarder représentation</button>
+	<button type="button" class="cancelbtn" id = "saveRepspectaclesTableRespo" onClick="saveRep('repsTableRespo')">Sauvegarder représentation</button>
 	<table id = "repsTableRespo">
 		<th>
 			
@@ -165,19 +154,6 @@
 		</th>
 	</table>
 </div>
-<div class="container" style="background-color: #f1f1f1" id="repsClient">
-<h2>Liste des Représentations</h2>
-	<table id = "repsTableClient">
-		<th>
-			Nom spectacle
-		</th>
-		<th>
-			Date représentation
-		</th>
-		<th>
-			Durée représentation
-		</th>
-	</table>
-</div>
+
 </body>
 </html>

@@ -13,8 +13,6 @@ import com.alibaba.fastjson.JSONArray;
 
 import Exceptions.ExceptionSpectacleExistant;
 import Exceptions.ExceptionChevauchement;
-import Exceptions.ExceptionChevauchement;
-import Exceptions.ExceptionSpectacleExistant;
 import Modele.Theatre.Representation;
 import Modele.Theatre.Spectacle;
 import Modele.Theatre.Theatre;
@@ -32,22 +30,26 @@ public class ShowServlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		//récupérer le type d'utilisateur
 		String user = request.getParameter("userType");
+		//récupérer la tâche à faire
 		String toDo = request.getParameter("toDo");
+		//récupérer la liste des spectacles
 		String shows = request.getParameter("showsList");
+		//parse la liste des spectacles
 		List<Spectacle> listeShows = JSONArray.parseArray(shows, Spectacle.class);
+		//mettre à jour la liste des spectacles du théatre (pour rester synchro)
 		theatre.getSpectacles().clear();
 		for (Spectacle s : listeShows) {
 			try {
 				theatre.ajouterSpectacle(s);
 			} catch (ExceptionChevauchement e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			} catch (ExceptionSpectacleExistant e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
+		//ajout d'un spectacle
 		if (toDo.equals("addShow")) {
 
 			String showToAdd = request.getParameter("showsToAdd");
@@ -63,6 +65,7 @@ public class ShowServlet extends HttpServlet {
 				request.setAttribute("addingShowMessage", "The show already exists");
 			}
 
+			//ajout d'une représentation
 		} else if (toDo.equals("addRep")) {
 			String repToAdd = request.getParameter("repToAdd");
 			String repShow = request.getParameter("repShow");

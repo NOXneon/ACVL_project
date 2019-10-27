@@ -25,7 +25,7 @@
 
 			<button onClick="login()">Se connecter en tant que</button>
 			<div>
-				<label> <input type="radio" name="user" value = "utilisateur"> Utilisateur</label>
+				<label> <input type="radio" name="user" value = "utilisateur" checked> Utilisateur</label>
 				<label> <input type="radio" name="user" value = "respProg"> Resp. Prog.</label> 
 				<label> <input type="radio" name="user" value = "admin"> Admin</label>
 			</div>

@@ -20,7 +20,7 @@
   <li><a href="#" onClick="disconnect()">Déconnexion</a></li>
 </ul>
 
-<form method="post" action="home" id = "showForm">
+<form method="post" action="home" id = "clientForm">
 <input type="hidden" id="userType" name ="userType" value='${user}'/>
 <input type="hidden" id="toDo" name="toDo" />
 <input type="hidden" id="showsList" name="showsList" />
