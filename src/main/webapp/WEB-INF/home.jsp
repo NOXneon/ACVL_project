@@ -32,12 +32,12 @@
   <li><a href="#" onClick="disconnect()">Déconnexion</a></li>
 </ul>
 
-
 <form method="post" action="home" id = "showForm">
+<input type="hidden" id="userTypeShow" name ="userTypeShow" value='${user}'/>
 <input type="hidden" id="showsList" name="showsList" />
-<input type="hidden" id="showToAdd" name="showToAdd" />
+<input type="hidden" id="showsToAdd" name="showsToAdd" />
 <input type="hidden" id="addingShow" value="${addingShowMessage}" />
-<input type="hidden" id=showsToAdd value='${showsToAdd}' />
+<input type="hidden" id="showToAddPostMessage" value='${showToAddPostMessage}' />
 </form>		
 			
 <div class="container" style="background-color: #f1f1f1" id="showsAdmin">
@@ -128,7 +128,7 @@
 <h2>Liste des Représentations</h2>
 	<table id = "repsTableAdmin">
 		<th>
-			Nom représentation
+			Nom spectacle
 		</th>
 		<th>
 			Date représentation
@@ -148,7 +148,7 @@
 			
 		</th>
 		<th>
-			Nom représentation
+			Nom spectacle
 		</th>
 		<th>
 			Date représentation
@@ -162,7 +162,7 @@
 <h2>Liste des Représentations</h2>
 	<table id = "repsTableClient">
 		<th>
-			Nom représentation
+			Nom spectacle
 		</th>
 		<th>
 			Date représentation

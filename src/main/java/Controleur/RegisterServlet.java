@@ -33,7 +33,7 @@ public class RegisterServlet extends HttpServlet {
 			throws ServletException, IOException {
 		String users = request.getParameter("clientsList");
 		if (users != "") {
-			List<String> listeClients = JSONArray.parseArray(users, String.class);
+			List<Client> listeClients = JSONArray.parseArray(users, Client.class);
 		
 			String name = request.getParameter("nom");
 			String surname = request.getParameter("prenom");
@@ -44,8 +44,8 @@ public class RegisterServlet extends HttpServlet {
 
 			Client client = new Client(name, surname, username, password, mail, number);
 			boolean same = false;
-			for (String c: listeClients) {
-				if (c.contains(client.getLogin())) {
+			for (Client c: listeClients) {
+				if (c.getLogin() == client.getLogin()) {
 					same = true;
 				}
 			}
