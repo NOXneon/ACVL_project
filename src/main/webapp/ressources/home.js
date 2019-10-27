@@ -10,6 +10,19 @@ function loadData() {
 	} else {
 		alert("db not working");
 	}
+	//passer liste des spectacles au controleur
+	document.getElementById("showsList").value = localStorage.getItem('spectacles');
+	//eventually adding show
+	if (document.getElementById("addingShow").value == "The show already exists") {
+		alert("Le spectacle existe déjà");
+	} else if (document.getElementById("addingShow").value == "The show can be added"){
+		var spectacles = JSON.parse(localStorage.getItem('spectacles'));
+		console.log(document.getElementById("showToAdd").value);
+		spectacles.push(JSON.parse(document.getElementById("showToAdd").value));
+		document.getElementById("showToAdd").value = "";
+		localStorage.setItem('spectacles', JSON.stringify(spectacles));
+	}
+	
 	var containers = document.querySelectorAll("div[class=container]");
 	var uls = document.querySelectorAll("ul");
 	for (var i = 0; i < uls.length; i++) {
@@ -69,17 +82,18 @@ function addShow(idTable) {
 
 //function to save a show
 function saveShow(idTable) {
-	var spectacles = JSON.parse(localStorage.getItem('spectacles'));
+	var showToAdd;
+
 	var table = document.getElementById(idTable);
-	for (var i = 1; i < table.rows.length; i++) {
-		if (table.rows[i].cells[1].firstChild.value != undefined) {
-			spectacles.push(table.rows[i].cells[1].firstChild.value);
-		}
+	if (table.rows[table.rows.length-1].cells[1].firstChild.value != undefined) {
+		showToAdd = {
+			"nom":table.rows[table.rows.length-1].cells[1].firstChild.value,
+			"representations":{}
+			};
 	}
-	localStorage.setItem('spectacles', JSON.stringify(spectacles));
-	 document.formName=actionname;
-     document.formName.submit();
-//	location.reload();
+	//send the list of shows to add
+	document.getElementById("showToAdd").value = JSON.stringify(showToAdd);
+	document.getElementById("showForm").submit();
 }
 
 function displayShows(idTable) {

@@ -2,6 +2,9 @@ package Modele.Theatre;
 
 import java.util.Date;
 
+import com.alibaba.fastjson.annotation.JSONCreator;
+import com.alibaba.fastjson.annotation.JSONField;
+
 import Modele.Statut;
 
 /**
@@ -33,7 +36,8 @@ public final class Representation
      * @param date : date et heure de la représentation
      * @param duree : durée de la représentation
      */
-    public Representation(Date date, long duree)
+    @JSONCreator
+    public Representation(@JSONField(name="date") Date date, @JSONField(name="duree")long duree)
     {
         this.date = date;
         this.duree = duree;
@@ -105,4 +109,10 @@ public final class Representation
                 && this.getDuree() == representation.getDuree()
                 && this.getStatut() == representation.getStatut();
     }
+
+	@Override
+	public String toString() {
+		return "{\"date\": \"" + date + "\", \"duree\": \"" + duree + "\", \"statut\": \"" + statut + "\"}";
+	}
+    
 }
