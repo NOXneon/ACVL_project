@@ -1,5 +1,6 @@
 package Modele.Utilisateur;
 
+import Modele.ExceptionSpectacleExistant;
 import Exceptions.ExceptionChevauchement;
 import Modele.Theatre.Representation;
 import Modele.Theatre.Spectacle;
@@ -32,8 +33,9 @@ public final class Respo_Programmation extends Responsable
      * Programme un spectacle dans la salle
      * @param nom : nom du spectacle
      * @param representations : représentations du spectacle
+     * @throws ExceptionSpectacleExistant 
      */
-    public void programmerSpectacle(String nom, ArrayList<Representation> representations) throws ExceptionChevauchement
+    public void programmerSpectacle(String nom, ArrayList<Representation> representations) throws ExceptionChevauchement, ExceptionSpectacleExistant
     {
         Spectacle spectacle = new Spectacle(nom, representations);
         Theatre.getTHEATRE().ajouterSpectacle(spectacle);
