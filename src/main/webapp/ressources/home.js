@@ -65,6 +65,9 @@ function loadDataRespo() {
 	document.getElementById("showsRespo").style.display="block";
 	document.getElementById("clientsRespo").style.display="block";
 	document.getElementById("repsRespo").style.display="block";
+	
+	document.getElementById("saveShowspectaclesTableRespo").disabled = true;
+	
 	displayShows("spectaclesTableRespo");
 	displayClients("clientsTableRespo");
 	displayReps("repsTableRespo");
@@ -78,6 +81,7 @@ function addShow(idTable) {
 	del.innerHTML = '<input type = "checkbox">';
 	var name = row.insertCell(-1);
 	name.innerHTML = '<input type = "text" id = "showName'+row.indexRow+'">';
+	document.getElementById("saveShow"+idTable).disabled = false;
 }
 
 //function to add a rep
@@ -99,15 +103,18 @@ function addRep(idTable) {
 function saveRep(idTable) {
 	var repToAdd;
 	var params = new URLSearchParams(location.search);
-	document.getElementById("userTypeShow").value = params.get('user');
+	document.getElementById("userTypeRep").value = params.get('user');
 	var table = document.getElementById(idTable);
-	if (table.rows[table.rows.length-1].cells[1].firstChild.value != undefined) {
-		var spectacles = JSON.parse(localStorage.getItem('spectacles'));
+	if (table.rows[table.rows.length-1].cells[1].firstChild.value != undefined
+			&& table.rows[table.rows.length-1].cells[2].firstChild.value != undefined
+			&& table.rows[table.rows.length-1].cells[3].firstChild.value != undefined) {
+		repToAdd = {"date" : table.rows[table.rows.length-1].cells[2].firstChild.value,
+			"duree" : table.rows[table.rows.length-1].cells[3].firstChild.value};
+		document.getElementById("repShow").value = table.rows[table.rows.length-1].cells[1].firstChild.value;
 		
 	}
 	//send the list of shows to add
-	document.getElementById("showsToAdd").value = JSON.stringify(showToAdd);
-	document.getElementById("showForm").submit();
+	document.getElementById("repForm").submit();
 }
 
 //function to save a show

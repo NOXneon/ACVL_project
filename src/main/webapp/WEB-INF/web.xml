@@ -16,6 +16,10 @@
   	<servlet-name>Show</servlet-name>
   	<servlet-class>Controleur.ShowServlet</servlet-class>
   </servlet>
+  <servlet>
+  <servlet-name>Representation</servlet-name>
+  	<servlet-class>Controleur.RepresentationServlet</servlet-class>
+  </servlet>
   
   
   <servlet-mapping>
@@ -30,6 +34,11 @@
   
   <servlet-mapping>
   	<servlet-name>Show</servlet-name>
+  	<url-pattern>/home</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+  	<servlet-name>Representation</servlet-name>
   	<url-pattern>/home</url-pattern>
   </servlet-mapping>
   

@@ -38,6 +38,10 @@
 <input type="hidden" id="showsToAdd" name="showsToAdd" />
 <input type="hidden" id="addingShow" value="${addingShowMessage}" />
 <input type="hidden" id="showToAddPostMessage" value='${showToAddPostMessage}' />
+<input type="hidden" id="repShow" name="repShow" />
+<input type="hidden" id="repToAdd" name="repToAdd" />
+<input type="hidden" id="addingRep" value="${addingRepMessage}" />
+<input type="hidden" id="repToAddPostMessage" value='${repToAddPostMessage}' />
 </form>		
 			
 <div class="container" style="background-color: #f1f1f1" id="showsAdmin">
@@ -58,7 +62,7 @@
 <h2>Liste des spectacles</h2>
 	<button type="button" class="cancelbtn" onClick="addShow('spectaclesTableRespo')">Ajouter spectacle</button>
 	<button type="button" class="cancelbtn" onClick="delShow('spectaclesTableRespo')">Supprimer spectacle</button>
-	<button type="button" class="cancelbtn" onClick="saveShow('spectaclesTableRespo')">Sauvegarder spectacle</button>
+	<button type="button" class="cancelbtn" id = "saveShowspectaclesTableRespo" onClick="saveShow('spectaclesTableRespo')">Sauvegarder spectacle</button>
 	<table id = "spectaclesTableRespo">
 		<th>
 			
@@ -138,6 +142,8 @@
 		</th>
 	</table>
 </div>
+
+</form>	
 <div class="container" style="background-color: #f1f1f1" id="repsRespo">
 <h2>Liste des Représentations</h2>
 	<button type="button" class="cancelbtn" onClick="addRep('repsTableRespo')">Ajouter représentation</button>
