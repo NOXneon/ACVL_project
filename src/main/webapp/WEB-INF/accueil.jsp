@@ -19,6 +19,12 @@
   <li><a href="#reps_client">Représentations</a></li>
   <li><a href="#" onClick="disconnect()">Déconnexion</a></li>
 </ul>
+
+<form method="post" action="home" id = "showForm">
+<input type="hidden" id="userType" name ="userType" value='${user}'/>
+<input type="hidden" id="toDo" name="toDo" />
+<input type="hidden" id="showsList" name="showsList" />
+</form>	
 			
 <div class="container" style="background-color: #f1f1f1" id="showsClient">
 <h2>Liste des spectacles</h2>
