@@ -127,14 +127,18 @@ function saveRep(idTable) {
 	var table = document.getElementById(idTable);
 	if (table.rows[table.rows.length-1].cells[1].firstChild.value != undefined
 			&& table.rows[table.rows.length-1].cells[2].firstChild.value != undefined
-			&& table.rows[table.rows.length-1].cells[3].firstChild.value != undefined) {
+			&& table.rows[table.rows.length-1].cells[3].firstChild.value != undefined
+			&& !isNaN(table.rows[table.rows.length-1].cells[3].firstChild.value)) {
 		repToAdd = {"date" : table.rows[table.rows.length-1].cells[2].firstChild.value,
 			"duree" : table.rows[table.rows.length-1].cells[3].firstChild.value};
 		document.getElementById("repShow").value = table.rows[table.rows.length-1].cells[1].firstChild.value;
 		document.getElementById("repToAdd").value = JSON.stringify(repToAdd);
+		//send the list of shows to add
+		document.getElementById("showForm").submit();
+	} else {
+		alert("Erreur dans les données saisies");
 	}
-	//send the list of shows to add
-	document.getElementById("showForm").submit();
+	
 }
 
 //function to save a show
@@ -149,10 +153,13 @@ function saveShow(idTable) {
 			"nom":table.rows[table.rows.length-1].cells[1].firstChild.value,
 			"representations":[]
 			};
+		//send the list of shows to add
+		document.getElementById("showsToAdd").value = JSON.stringify(showToAdd);
+		document.getElementById("showForm").submit();
+	}else {
+		alert("Erreur dans les données saisies");
 	}
-	//send the list of shows to add
-	document.getElementById("showsToAdd").value = JSON.stringify(showToAdd);
-	document.getElementById("showForm").submit();
+	
 }
 
 function displayShows(idTable) {
