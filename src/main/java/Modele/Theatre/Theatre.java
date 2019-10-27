@@ -81,7 +81,6 @@ public final class Theatre
 
         return prog_possible;
     }
-
     /**
      * Ajoute un spectacle à la liste des spectacles
      * @param spectacle : spectacle à ajouter
