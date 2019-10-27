@@ -4,8 +4,7 @@ import java.util.Date;
 
 import com.alibaba.fastjson.annotation.JSONCreator;
 import com.alibaba.fastjson.annotation.JSONField;
-
-import Modele.Statut;
+import Enums.Statut;
 
 /**
  * Représente une séance d'un spectacle se déroulant dans le théâtre

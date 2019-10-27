@@ -1,11 +1,5 @@
 package Modele.Theatre;
 
-import Modele.ExceptionChevauchement;
-
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.concurrent.TimeUnit;
-
 /**
  * Représente la salle du théâtre (donc en Singleton)
  */

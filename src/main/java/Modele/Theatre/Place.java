@@ -1,6 +1,6 @@
 package Modele.Theatre;
 
-import Modele.Etat;
+import Enums.Etat;
 
 /**
  * Représente une place dans la salle

@@ -1,4 +1,4 @@
-package Modele;
+package Enums;
 
 /**
  * Représente les différents status des différents Objets (Reservation, Achat, Ticket, Representation)

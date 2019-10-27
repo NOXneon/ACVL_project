@@ -1,7 +1,7 @@
 package Modele.Billetterie;
 
-import Modele.Etat;
-import Modele.Statut;
+import Enums.Etat;
+import Enums.Statut;
 import Modele.Theatre.Place;
 
 import java.util.ArrayList;

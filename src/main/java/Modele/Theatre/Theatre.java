@@ -1,6 +1,6 @@
 package Modele.Theatre;
 
-import Modele.ExceptionChevauchement;
+import Exceptions.ExceptionChevauchement;
 import Modele.ExceptionSpectacleExistant;
 
 import java.util.ArrayList;
