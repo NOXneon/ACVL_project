@@ -17,10 +17,10 @@ function loadData() {
 		alert("Le spectacle existe déjà");
 	} else if (document.getElementById("addingShow").value == "The show can be added"){
 		var spectacles = JSON.parse(localStorage.getItem('spectacles'));
-		console.log(document.getElementById("showToAdd").value);
-		spectacles.push(JSON.parse(document.getElementById("showToAdd").value));
-		document.getElementById("showToAdd").value = "";
+		document.getElementById("addingShow").value = "";
+		spectacles.push(JSON.parse(document.getElementById("showToAddPostMessage").value));
 		localStorage.setItem('spectacles', JSON.stringify(spectacles));
+		window.location="/Theater/home?user="+document.getElementById("userTypeShow").value;
 	}
 	
 	var containers = document.querySelectorAll("div[class=container]");
@@ -36,7 +36,7 @@ function loadData() {
 		loadDataAdmin();
 	} else if (params.get('user') == 'utilisateur') {
 		loadDataUser();
-	} else {
+	} else if (params.get('user') == 'respProg'){
 		loadDataRespo();
 	}
 }
@@ -57,7 +57,7 @@ function loadDataAdmin() {
 	document.getElementById("repsAdmin").style.display="block";
 	displayShows("spectaclesTableAdmin");
 	displayClients("clientsTableAdmin");
-//	displayReps("repsTableAdmin");
+	displayReps("repsTableAdmin");
 }
 
 function loadDataRespo() {
@@ -80,19 +80,50 @@ function addShow(idTable) {
 	name.innerHTML = '<input type = "text" id = "showName'+row.indexRow+'">';
 }
 
+//function to add a rep
+function addRep(idTable) {
+	var table = document.getElementById(idTable);
+	table.style.display = "block";
+	var row = table.insertRow(-1);
+	var del = row.insertCell(-1);
+	del.innerHTML = '<input type = "checkbox">';
+	var showName = row.insertCell(-1);
+	showName.innerHTML = '<input type = "text" id = "showName'+row.indexRow+'">';
+	var repDate = row.insertCell(-1);
+	repDate.innerHTML = '<input type = "text" id = "repDate'+row.indexRow+'">';
+	var repDuration = row.insertCell(-1);
+	repDuration.innerHTML = '<input type = "text" id = "repDuration'+row.indexRow+'">';
+}
+
+//function to save a rep
+function saveRep(idTable) {
+	var repToAdd;
+	var params = new URLSearchParams(location.search);
+	document.getElementById("userTypeShow").value = params.get('user');
+	var table = document.getElementById(idTable);
+	if (table.rows[table.rows.length-1].cells[1].firstChild.value != undefined) {
+		var spectacles = JSON.parse(localStorage.getItem('spectacles'));
+		
+	}
+	//send the list of shows to add
+	document.getElementById("showsToAdd").value = JSON.stringify(showToAdd);
+	document.getElementById("showForm").submit();
+}
+
 //function to save a show
 function saveShow(idTable) {
 	var showToAdd;
-
+	var params = new URLSearchParams(location.search);
+	document.getElementById("userTypeShow").value = params.get('user');
 	var table = document.getElementById(idTable);
 	if (table.rows[table.rows.length-1].cells[1].firstChild.value != undefined) {
 		showToAdd = {
 			"nom":table.rows[table.rows.length-1].cells[1].firstChild.value,
-			"representations":{}
+			"representations":[]
 			};
 	}
 	//send the list of shows to add
-	document.getElementById("showToAdd").value = JSON.stringify(showToAdd);
+	document.getElementById("showsToAdd").value = JSON.stringify(showToAdd);
 	document.getElementById("showForm").submit();
 }
 
@@ -110,7 +141,32 @@ function displayShows(idTable) {
 			del.innerHTML = '<input type = "checkbox">';
 		}
 		var name = row.insertCell(-1);
-		name.innerHTML = spectacles[i];
+		name.innerHTML = spectacles[i].nom;
+	}
+}
+
+function displayReps(idTable) {
+	var spectacles = JSON.parse(localStorage.getItem('spectacles'));
+	var table = document.getElementById(idTable);
+	table.style.display="block";
+	if (table.rows.length == 0) {
+		table.style.display = "none";
+	}
+	for (var i = 0; i < spectacles.length; i++) {
+		var reps = spectacles[i].representations;
+		for (var j = 0; j < reps.length; j++) {
+			var row = table.insertRow(-1);
+			if (table.rows[0].cells.length == 4) {
+				var del = row.insertCell(-1);
+				del.innerHTML = '<input type = "checkbox">';
+			}
+			var showName = row.insertCell(-1);
+			showName.innerHTML = spectacles[i].nom;
+			var repDate = row.insertCell(-1);
+			repDate.innerHTML = reps.date;
+			var repDuration = row.insertCell(-1);
+			repDuration.innerHTML = reps.duree;
+		}
 	}
 }
 
