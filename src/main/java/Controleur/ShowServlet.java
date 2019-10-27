@@ -72,7 +72,6 @@ public class ShowServlet extends HttpServlet {
 						request.setAttribute("repToAddPostMessage", repToAdd);
 						request.setAttribute("repShow", repShow);
 						request.setAttribute("addingRepMessage", "The rep can be added");
-						System.out.println("NON" + theatre.getSpectacles());
 					}
 				}
 
