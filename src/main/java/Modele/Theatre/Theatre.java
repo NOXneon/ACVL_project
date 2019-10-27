@@ -1,7 +1,7 @@
 package Modele.Theatre;
 
 import Exceptions.ExceptionChevauchement;
-import Modele.ExceptionSpectacleExistant;
+import Exceptions.ExceptionSpectacleExistant;
 
 import java.util.ArrayList;
 import java.util.Date;

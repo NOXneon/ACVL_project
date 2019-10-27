@@ -11,8 +11,8 @@ import javax.servlet.http.HttpServletResponse;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 
-import Modele.ExceptionChevauchement;
-import Modele.ExceptionSpectacleExistant;
+import Exceptions.ExceptionSpectacleExistant;
+import Exceptions.ExceptionChevauchement;
 import Modele.Theatre.Spectacle;
 import Modele.Theatre.Theatre;
 

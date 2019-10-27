@@ -1,4 +1,4 @@
-package Modele;
+package Exceptions;
 
 public class ExceptionSpectacleExistant extends Exception {
 	    public ExceptionSpectacleExistant()
